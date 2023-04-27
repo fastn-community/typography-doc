@@ -1,8 +1,8 @@
 -- import: fastn
 -- import: fastn/processors as pr
--- import: fifthtry.github.io/color-doc/assets
--- import: fifthtry.github.io/color-doc/colors
--- import: fifthtry.github.io/color-doc/components as cp
+-- import: fastn-community.github.io/color-doc/assets
+-- import: fastn-community.github.io/color-doc/colors
+-- import: fastn-community.github.io/color-doc/components as cp
 -- import: fifthtry.github.io/footer
 -- import: fastn-community.github.io/inter-typography as typo
 
@@ -24,7 +24,6 @@ name: `<color scheme name>`
 logo: $assets.files.static.fastn-logo.svg
 subtitle: Adding warmth and energy to your designs with the `<add color scheme name here>` Color Scheme
 colors: $colors-data
-
 
 -- cp.components-pallete:
 
