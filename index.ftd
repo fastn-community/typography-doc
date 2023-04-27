@@ -340,11 +340,8 @@ width: fill-container
 align-content: center
 padding-top.px: 60
 
--- ftd.column:
-width: fill-container
-
 -- ftd.row:
-if: { ftd.device == "desktop" }
+if: { ftd.device != "mobile" }
 width: fill-container
 spacing.fixed.px: 34
 
@@ -416,15 +413,8 @@ children: $color-scheme.cs-wrap
 
 -- end: ftd.column
 
--- ftd.column:
-width: fill-container
-
 -- column-right:
 childrens: $color-scheme.rightbar
-
--- end: ftd.column
-
--- end: ftd.column
 
 -- end: ftd.column
 
@@ -548,13 +538,13 @@ width: fill-container
 -- ftd.column:
 width: fill-container
 background.solid: rgba(250,235,215,1)
-padding-vertical.px if { ftd.device == "desktop" }: 34
+padding-vertical.px if { ftd.device != "mobile" }: 34
 padding-vertical.px if { ftd.device == "mobile" }: 18
 
 -- ftd.column:
 width: fill-container
 max-width.fixed.px: 1440
-padding-horizontal.px if { ftd.device == "desktop" }: 70
+padding-horizontal.px if { ftd.device != "mobile" }: 70
 padding-horizontal.px if { ftd.device == "mobile" }: 18
 
 -- ftd.row:
@@ -598,8 +588,8 @@ text-transform: uppercase
 -- ftd.column:
 width: fill-container
 max-width.fixed.px: 1440
-padding-horizontal.px if { ftd.device == "desktop" }: 70
-padding-vertical.px if { ftd.device == "desktop" }: 60
+padding-horizontal.px if { ftd.device != "mobile" }: 70
+padding-vertical.px if { ftd.device != "mobile" }: 60
 padding.px if { ftd.device == "mobile" }: 18
 background.solid: #FFFFFF
 
@@ -698,8 +688,8 @@ optional string text-light:
 optional ftd.color text: 
 
 -- ftd.row:
-min-width.fixed.px if { ftd.device == "desktop" }: 400
-max-width.fixed.px if { ftd.device == "desktop" }: 400
+min-width.fixed.px if { ftd.device != "mobile" }: 400
+max-width.fixed.px if { ftd.device != "mobile" }: 400
 width if { ftd.device == "mobile" }: fill-container
 margin-top.px: 40
 
