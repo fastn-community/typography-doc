@@ -706,8 +706,10 @@ border-radius.px: 6
 spacing.fixed.px: 15
 
 -- ftd.column:
-width.fixed.px: 145
-height.fixed.px: 100
+width.fixed.px if { ftd.device == "desktop" }: 145
+height.fixed.px if { ftd.device == "desktop" }: 100
+width.fixed.px: 100
+height.fixed.px: 80
 
 -- ftd.column: 
 if: { color-block.border == NULL }
@@ -864,6 +866,7 @@ color: #212738
 -- ftd.text:
 role: $inherited.types.copy-small
 color: #707070
+width.fixed.percent if { ftd.device == "mobile" }: 80
 
 $color-block.body
 
