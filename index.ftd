@@ -588,9 +588,10 @@ text-transform: uppercase
 -- ftd.column:
 width: fill-container
 max-width.fixed.px: 1440
-padding-horizontal.px if { ftd.device != "mobile" }: 70
-padding-vertical.px if { ftd.device != "mobile" }: 60
-padding.px: 18
+padding-horizontal.px if { ftd.device == "desktop" }: 70
+padding-vertical.px if { ftd.device == "desktop" }: 60
+padding-horizontal.px: 18
+padding-vertical.px: 18
 background.solid: #FFFFFF
 
 -- ftd.text: $package.subtitle
@@ -688,9 +689,9 @@ optional string text-light:
 optional ftd.color text: 
 
 -- ftd.row:
-min-width.fixed.px if { ftd.device != "mobile" }: 400
-max-width.fixed.px if { ftd.device != "mobile" }: 400
-width if { ftd.device == "mobile" }: fill-container
+min-width.fixed.px if { ftd.device == "desktop" }: 400
+max-width.fixed.px if { ftd.device == "desktop" }: 400
+width: fill-container
 margin-top.px: 40
 
 -- ftd.column:
