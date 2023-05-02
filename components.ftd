@@ -261,13 +261,13 @@ height.fixed.px: 24
 border-radius.px: 4
 padding.px: 10
 spacing.fixed.px: 12
-background.solid: $inherited.colors.accent.primary
+background.solid: $inherited.colors.cta-primary.base
 align-content: center
 link: $button-tick.link
 
 -- ftd.text: $button-tick.title
 role: $inherited.types.copy-small
-color: $inherited.colors.text
+color: $inherited.colors.cta-primary.text
 style: bold
 
 -- ftd.image:
@@ -296,13 +296,13 @@ border-radius.px: 4
 padding-horizontal.px: 10
 padding-vertical.px: 2
 spacing.fixed.px: 4
-background.solid: $inherited.colors.accent.primary
+background.solid: $inherited.colors.cta-primary.base
 align-content: center
 link: $button-tick-small.link
 
 -- ftd.text: $button-tick-small.title
 role: $inherited.types.copy-small
-color: $inherited.colors.text
+color: $inherited.colors.cta-primary.text
 style: bold
 
 -- ftd.image:
@@ -504,7 +504,7 @@ width: fill-container
 min-width.fixed.px: 32
 min-height.fixed.px: 32
 border-radius.px: 400
-background.solid: $inherited.colors.accent.primary
+background.solid: $inherited.colors.cta-primary.base
 align-content: center
 
 -- ftd.image:
@@ -560,7 +560,7 @@ min-height.fixed.px: 56
 border-radius.px: 4
 padding.px: 16
 spacing.fixed.px: 12
-background.solid: $inherited.colors.accent.primary
+background.solid: $inherited.colors.cta-primary.base
 align-content: center
 
 -- ftd.image:
@@ -568,7 +568,7 @@ src: $assets.files.static.plus.svg
 
 -- ftd.text: $label.title
 role: $inherited.types.label-large
-color: $inherited.colors.text-strong
+color: $inherited.colors.cta-primary.text
 
 -- end: ftd.row
 
@@ -591,13 +591,13 @@ height.fixed.px: 44
 border-radius.px: 4
 padding-horizontal.px: 20
 padding-vertical.px: 10
-background.solid: $inherited.colors.accent.primary
+background.solid: $inherited.colors.cta-primary.base
 align-content: center
 width: fill-container
 
 -- ftd.text: $button-base-dark.title
 role: $inherited.types.button-medium
-color: $inherited.colors.text-strong
+color: $inherited.colors.cta-primary.text
 style: bold
 
 -- end: ftd.column
@@ -622,14 +622,14 @@ border-radius.px: 4
 padding-horizontal.px: 20
 padding-vertical.px: 10
 background.solid: $inherited.colors.cta-primary.disabled
-border-color: $inherited.colors.cta-primary.hover
+border-color: $inherited.colors.cta-primary.border
 border-width.px: 1
 align-content: center
 width: fill-container
 
 -- ftd.text: $button-base-light.title
 role: $inherited.types.button-medium
-color: $inherited.colors.text-strong
+color: $inherited.colors.cta-primary.text
 style: bold
 
 -- end: ftd.column
@@ -661,7 +661,7 @@ link: $button-base-dark-small.link
 
 -- ftd.text: $button-base-dark-small.title
 role: $inherited.types.copy-small
-color: $inherited.colors.text-strong
+color: $inherited.colors.cta-primary.text
 style: bold
 
 -- end: ftd.column
@@ -694,7 +694,7 @@ link: $button-base-light-small.link
 
 -- ftd.text: $button-base-light-small.title
 role: $inherited.types.copy-small
-color: $inherited.colors.cta-primary.base
+color: $inherited.colors.cta-primary.text
 style: bold
 
 -- end: ftd.column
@@ -1506,7 +1506,7 @@ spacing: space-between
 
 -- ftd.text: Label
 role: $inherited.types.copy-small
-color: $inherited.colors.text-strong
+color: $inherited.colors.cta-primary.text
 
 -- ftd.image:
 src: $assets.files.static.search.svg
