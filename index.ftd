@@ -1199,12 +1199,26 @@ bgcolor: $colors-data.cta-primary.border
 
 We use this color as primary main button border color.
 
+-- colors: \$inherited.colors.cta-primary.border-disabled
+dark: $colors-data.cta-primary.border-disabled.dark
+light: $colors-data.cta-primary.border-disabled.light
+bgcolor: $colors-data.cta-primary.border-disabled
+
+We use this color as primary main button disabled border color.
+
 -- colors: \$inherited.colors.cta-primary.text
 dark: $colors-data.cta-primary.text.dark
 light: $colors-data.cta-primary.text.light
 bgcolor: $colors-data.cta-primary.text
 
 We use this color as primary main button text color.
+
+-- colors: \$inherited.colors.cta-primary.text-disabled
+dark: $colors-data.cta-primary.text-disabled.dark
+light: $colors-data.cta-primary.text-disabled.light
+bgcolor: $colors-data.cta-primary.text-disabled
+
+We use this color as primary main button disabled text color.
 
 -- end: cta-primary-colors
 
@@ -1256,12 +1270,26 @@ bgcolor: $colors-data.cta-secondary.border
 
 We use this color as secondary main button border color.
 
+-- colors: \$inherited.colors.cta-secondary.border-disabled
+dark: $colors-data.cta-secondary.border-disabled.dark
+light: $colors-data.cta-secondary.border-disabled.light
+bgcolor: $colors-data.cta-secondary.border-disabled
+
+We use this color as secondary main button disabled border color.
+
 -- colors: \$inherited.colors.cta-secondary.text
 dark: $colors-data.cta-secondary.text.dark
 light: $colors-data.cta-secondary.text.light
 bgcolor: $colors-data.cta-secondary.text
 
 We use this color as secondary main button text color.
+
+-- colors: \$inherited.colors.cta-secondary.text-disabled
+dark: $colors-data.cta-secondary.text-disabled.dark
+light: $colors-data.cta-secondary.text-disabled.light
+bgcolor: $colors-data.cta-secondary.text-disabled
+
+We use this color as secondary main button disabled text color.
 
 -- end: cta-secondary-colors
 
@@ -1313,12 +1341,26 @@ bgcolor: $colors-data.cta-tertiary.border
 
 We use this color as tertiary main button border color.
 
+-- colors: \$inherited.colors.cta-tertiary.border-disabled
+dark: $colors-data.cta-tertiary.border-disabled.dark
+light: $colors-data.cta-tertiary.border-disabled.light
+bgcolor: $colors-data.cta-tertiary.border-disabled
+
+We use this color as tertiary main button disabled border color.
+
 -- colors: \$inherited.colors.cta-tertiary.text
 dark: $colors-data.cta-tertiary.text.dark
 light: $colors-data.cta-tertiary.text.light
 bgcolor: $colors-data.cta-tertiary.text
 
 We use this color as tertiary main button text color.
+
+-- colors: \$inherited.colors.cta-tertiary.text-disabled
+dark: $colors-data.cta-tertiary.text-disabled.dark
+light: $colors-data.cta-tertiary.text-disabled.light
+bgcolor: $colors-data.cta-tertiary.text-disabled
+
+We use this color as tertiary main button disabled text color.
 
 -- end: cta-tertiary-colors
 
@@ -1370,12 +1412,26 @@ bgcolor: $colors-data.cta-danger.border
 
 We use this color as warning main button border color.
 
+-- colors: \$inherited.colors.cta-danger.border-disabled
+dark: $colors-data.cta-danger.border-disabled.dark
+light: $colors-data.cta-danger.border-disabled.light
+bgcolor: $colors-data.cta-danger.border-disabled
+
+We use this color as danger main button disabled border color.
+
 -- colors: \$inherited.colors.cta-danger.text
 dark: $colors-data.cta-danger.text.dark
 light: $colors-data.cta-danger.text.light
 bgcolor: $colors-data.cta-danger.text
 
 We use this color as warning main button text color.
+
+-- colors: \$inherited.colors.cta-danger.text-disabled
+dark: $colors-data.cta-danger.text-disabled.dark
+light: $colors-data.cta-danger.text-disabled.light
+bgcolor: $colors-data.cta-danger.text-disabled
+
+We use this color as danger main button disabled text color.
 
 -- end: cta-danger-colors
 
