@@ -1176,6 +1176,8 @@ padding-vertical.px: 41
 spacing.fixed.px: 37
 background.solid: $inherited.colors.background.base
 border-radius.px: 16
+border-width.px: 1
+border-color: $inherited.colors.border
 width: fill-container
 height.fixed.px: 887
 padding-right.px: 41
