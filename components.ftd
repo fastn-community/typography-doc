@@ -622,14 +622,14 @@ border-radius.px: 4
 padding-horizontal.px: 20
 padding-vertical.px: 10
 background.solid: $inherited.colors.cta-primary.disabled
-border-color: $inherited.colors.cta-primary.border
+border-color: $inherited.colors.cta-primary.border-disabled
 border-width.px: 1
 align-content: center
 width: fill-container
 
 -- ftd.text: $button-base-light.title
 role: $inherited.types.button-medium
-color: $inherited.colors.cta-primary.text
+color: $inherited.colors.cta-primary.text-disabled
 style: bold
 
 -- end: ftd.column
