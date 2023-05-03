@@ -436,7 +436,7 @@ padding-right.px if { ftd.device == "desktop" }: 24
 children wrap:
 
 -- ftd.row:
-spacing.fixed.px: 48
+spacing: space-between
 align-content: center
 children: $row-spacing-48.wrap
 width: fill-container
