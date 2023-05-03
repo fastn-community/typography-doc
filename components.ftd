@@ -1211,7 +1211,6 @@ width: fill-container
 -- ftd.row:
 spacing.fixed.px: 16
 width: fill-container
-align-content: center
 
 -- ftd.image:
 if: { navbar-list.item.icon != NULL }
