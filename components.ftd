@@ -1835,12 +1835,12 @@ if: { ftd.follow-system-dark-mode }
 $on-click$: $ftd.enable-light-mode()
 
 -- ftd.image:
-src: $assets.files.static.dms-night.svg
+src: $assets.files.static.dms-day.svg
 if: { !ftd.dark-mode && !ftd.follow-system-dark-mode }
 $on-click$: $ftd.enable-dark-mode()
 
 -- ftd.image:
-src: $assets.files.static.dms-day.svg
+src: $assets.files.static.dms-night.svg
 if: { ftd.dark-mode && !ftd.follow-system-dark-mode }
 $on-click$: $ftd.enable-system-mode()
 
