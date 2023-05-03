@@ -50,7 +50,7 @@ width if { ftd.device == "mobile" }: fill-container
 ftd.ui child:
 
 -- ftd.column:
-width.fixed.percent if { ftd.device == "desktop" }: 20
+width.fixed.percent if { ftd.device == "desktop" }: 24
 width if { ftd.device == "mobile" }: fill-container
 
 -- pallete-small.child:
@@ -81,6 +81,7 @@ overflow-x: auto
 if: { ftd.device == "desktop" }
 width: fill-container
 spacing: space-between
+padding-top.px: 48
 
 -- pallete-small:
 child: $components-pallete.components.0
@@ -368,10 +369,12 @@ spacing.fixed.px: 9
 children components:
 
 -- ftd.column:
-padding-vertical.px: 24
 spacing.fixed.px: 24
 children: $component-wrap-left.components
 width: fill-container
+background.solid: $inherited.colors.background.base
+padding.px: 24
+border-radius.px: 16
 
 -- end: ftd.column
 
@@ -390,9 +393,7 @@ width: fill-container
 children components:
 
 -- ftd.column:
-padding-vertical.px: 24
-padding-left.px if { ftd.device == "desktop" }: 24
-spacing.fixed.px: 24
+spacing.fixed.px: 46
 children: $component-wrap-middle.components
 width: fill-container
 
@@ -417,7 +418,6 @@ spacing.fixed.px: 24
 children: $component-wrap-right.components
 width: fill-container
 padding-right.px if { ftd.device == "desktop" }: 24
-padding-vertical.px: 24
 padding-right.px if { ftd.device == "desktop" }: 24
 
 -- end: ftd.column
@@ -889,7 +889,7 @@ padding-horizontal.px: 4
 anchor: parent
 top.px: -9
 left.px: 9
-background.solid: #FFFFFF
+background.solid: $inherited.colors.background.base
 align-content: center
 
 -- ftd.text: Label
@@ -905,6 +905,7 @@ width: auto
 -- ftd.text-input: 
 placeholder: Input Text
 type: text
+background.solid: $inherited.colors.background.base
 
 -- end: ftd.row
 
@@ -937,7 +938,7 @@ padding-horizontal.px: 4
 anchor: parent
 top.px: -9
 left.px: 9
-background.solid: #FFFFFF
+background.solid: $inherited.colors.background.base
 align-content: center
 
 -- ftd.text: Label
@@ -949,6 +950,7 @@ color: #000000
 -- ftd.text-input: 
 placeholder: Input Text
 type: text
+background.solid: $inherited.colors.background.base
 
 -- ftd.image:
 src: $assets.files.static.calender.svg
@@ -1179,7 +1181,7 @@ border-radius.px: 16
 border-width.px: 1
 border-color: $inherited.colors.border
 width: fill-container
-height.fixed.px: 887
+height.fixed.px: 943
 padding-right.px: 41
 
 -- page-title: Fastn
