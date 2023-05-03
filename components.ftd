@@ -75,6 +75,7 @@ ftd.type-data types: $cs-types.types
 -- ftd.column:
 width: fill-container
 min-width.fixed.px if { ftd.device == "desktop" }: 1300
+overflow-x: auto
 
 -- ftd.row:
 if: { ftd.device == "desktop" }

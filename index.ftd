@@ -200,6 +200,7 @@ strength, warmth, and growth.
 -- cb.code: Figma tokens json
 lang: json
 max-height.fixed.px: 300
+download: colors.json
 
 $figma-json
 
