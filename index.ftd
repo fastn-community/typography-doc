@@ -687,12 +687,51 @@ optional ftd.color border:
 optional string text-dark: 
 optional string text-light: 
 optional ftd.color text: 
+boolean copy: true
+string color-property: $ftd.clean-code(a = $color-block.title, lang = ftd)
+string $copy-text: null
+boolean $copy-mouse-in: false
+boolean $mouse-in: true
 
 -- ftd.row:
 min-width.fixed.px if { ftd.device == "desktop" }: 400
 max-width.fixed.px if { ftd.device == "desktop" }: 400
 width: fill-container
 margin-top.px: 40
+
+-- ftd.column:
+anchor: parent
+right.px: 8
+top.px: 8
+z-index: 999
+
+-- ftd.image:
+if: { color-block.copy-text == "null" && color-block.mouse-in }
+src: $assets.files.static.copy.svg
+src if { color-block.copy-mouse-in }: $assets.files.static.copy-hover.svg
+$on-mouse-enter$: $ftd.set-bool($a = $color-block.copy-mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $color-block.copy-mouse-in, v = false)
+$on-click$: $ftd.copy-to-clipboard(a = $color-block.color-property)
+$on-click$: $ftd.set-string($a = $color-block.copy-text, v = Copied!)
+width.fixed.px: 12
+
+-- ftd.row:
+align-content: center
+spacing: space-between
+
+-- ftd.image:
+if: { color-block.copy-text != "null" }
+src: $assets.files.static.tick-icon.svg
+width.fixed.px: 12
+
+-- ftd.text: $color-block.copy-text
+if: { color-block.copy-text != "null" }
+role: $inherited.types.fine-print
+color: #212738
+
+-- end: ftd.row
+
+-- end: ftd.column
 
 -- ftd.column:
 width: fill-container
