@@ -723,12 +723,12 @@ border-radius.px: 4
 padding.px: 16
 spacing: space-between
 background.solid: $inherited.colors.accent.primary
-align-content: center
 width: fill-container
 
 -- ftd.row:
 spacing.fixed.px: 15
 align-content: center
+align-self: start
 
 -- ftd.image:
 src: $app-bar.img1
