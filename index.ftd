@@ -3,7 +3,7 @@
 -- import: fastn-community.github.io/color-doc/assets
 -- import: fastn-community.github.io/color-doc/colors
 -- import: fastn-community.github.io/color-doc/components as cp
--- import: fifthtry.github.io/footer
+-- import: fastn-community.github.io/footer
 -- import: fastn-community.github.io/inter-typography as typo
 
 -- string figma-json:
@@ -154,18 +154,18 @@ link: https://fastn.com/
 
 -- title-with-link: Github Link
 icon: $assets.files.static.link-icon.svg
-link-text: github.com/FifthTry/color-doc
-link: https://github.com/FifthTry/color-doc
+link-text: github.com/fastn-community/color-doc
+link: https://github.com/fastn-community/color-doc
 
 -- title-with-link: License Information
 icon: $assets.files.static.bsd-license-icon.svg
 link-text: BSD 3-Clause License
-link: https://github.com/FifthTry/color-doc/blob/main/LICENSE
+link: https://github.com/fastn-community/color-doc/blob/main/LICENSE
 
 -- title-with-link: Author Information
 icon: $assets.files.static.author-icon.svg
 link-text: Contributors
-link: https://github.com/FifthTry/color-doc/graphs/contributors
+link: https://github.com/fastn-community/color-doc/graphs/contributors
 
 -- title-with-link: Discord Channel 
 icon: $assets.files.static.discord-icon.svg
@@ -237,7 +237,7 @@ lang: ftd
 download: my-ds.ftd
 
 \-- import: `<add color scheme name here>` as my-cs
-\-- import: fifthtry.github.io/doc-site as ds
+\-- import: fastn-community.github.io/doc-site as ds
 
 \-- component page: 
 children wrapper:
