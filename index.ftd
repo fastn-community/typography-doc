@@ -632,27 +632,107 @@ powered-by-link: https://fastn.io/
 -- component color-pallete: 
 caption title:
 colors list pallete:
+boolean $dark-mode: true
+boolean $is-active: false
 
 -- ftd.column:
 width: fill-container
 margin-top.px: 60
 
+-- ftd.row:
+width: fill-container
+spacing.fixed.px: 24
+border-bottom-width.px: 1
+border-color: #212738
+
 -- ftd.text: $color-pallete.title
 role: $inherited.types.heading-tiny
 color: #212738
-margin-bottom.px: 26
 style: bold
+padding-top.px: 8
+
+-- ftd.row:
+align-self: center
+
+-- ftd.row:
+border-width.px if { color-pallete.dark-mode && $color-pallete.is-active }: 1
+border-left-color if { color-pallete.dark-mode && $color-pallete.is-active }: #212738
+border-top-color if { color-pallete.dark-mode && $color-pallete.is-active }: #212738
+border-right-color if { color-pallete.dark-mode && $color-pallete.is-active }: #212738
+border-bottom-color if { color-pallete.dark-mode && $color-pallete.is-active }: #FFFFFF
+margin-bottom.px if { color-pallete.dark-mode && $color-pallete.is-active }: -1
+border-top-left-radius.px if { color-pallete.dark-mode && $color-pallete.is-active }: 4
+border-top-right-radius.px if { color-pallete.dark-mode && $color-pallete.is-active }: 4
+padding.px: 12
+spacing.fixed.px: 12
+
+-- ftd.text: Dark Mode
+role: $inherited.types.button-small
+color: #212738
+$on-click$: $ftd.set-bool($a = $color-pallete.dark-mode, v = true)
+$on-click$: $ftd.set-bool($a = $color-pallete.is-active, v = true)
+color if { color-pallete.dark-mode }: #ef8435
+
+-- ftd.image:
+src: $assets.files.static.dms-night.svg
+width.fixed.px: 24
+height.fixed.px: 24
+
+-- end: ftd.row
+
+-- ftd.row:
+border-width.px if { !color-pallete.dark-mode && $color-pallete.is-active }: 1
+border-left-color if { !color-pallete.dark-mode && $color-pallete.is-active }: #212738
+border-top-color if { !color-pallete.dark-mode && $color-pallete.is-active }: #212738
+border-right-color if { !color-pallete.dark-mode && $color-pallete.is-active }: #212738
+border-bottom-color if { !color-pallete.dark-mode && $color-pallete.is-active }: #FFFFFF
+margin-bottom.px if { !color-pallete.dark-mode && $color-pallete.is-active }: -1
+border-top-left-radius.px if { !color-pallete.dark-mode && $color-pallete.is-active }: 4
+border-top-right-radius.px if { !color-pallete.dark-mode && $color-pallete.is-active }: 4
+padding.px: 12
+spacing.fixed.px: 12
+
+-- ftd.text: Light Mode
+role: $inherited.types.button-small
+color: #212738
+color if { !color-pallete.dark-mode }: #ef8435
+$on-click$: $ftd.set-bool($a = $color-pallete.dark-mode, v = false)
+$on-click$: $ftd.set-bool($a = $color-pallete.is-active, v = true)
+
+-- ftd.image:
+src: $assets.files.static.dms-day.svg
+width.fixed.px: 24
+height.fixed.px: 24
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- end: ftd.row
 
 -- ftd.row:
 width: fill-container
 spacing.fixed.px: 40
 wrap: true
 
--- color-block: $obj.title
+-- color-block-dark: $obj.title
+if: { color-pallete.dark-mode && color-pallete.is-active}
 $loop$: $color-pallete.pallete as $obj
 dark: $obj.dark
+bgcolor: $obj.bgcolor.dark
+body: $obj.body
+border-dark: $obj.border-dark
+border-light: $obj.border-light
+border: $obj.border
+text-dark: $obj.text-dark
+text-light: $obj.text-light
+text: $obj.text
+
+-- color-block-light: $obj.title
+if: { !color-pallete.dark-mode && color-pallete.is-active}
+$loop$: $color-pallete.pallete as $obj
 light: $obj.light
-bgcolor: $obj.bgcolor
+bgcolor: $obj.bgcolor.light
 body: $obj.body
 border-dark: $obj.border-dark
 border-light: $obj.border-light
@@ -705,6 +785,7 @@ anchor: parent
 right.px: 8
 top.px: 8
 z-index: 999
+$on-mouse-leave$: $ftd.set-string($a = $color-block.copy-text, v = null)
 
 -- ftd.image:
 if: { color-block.copy-text == "null" && color-block.mouse-in }
@@ -919,6 +1000,448 @@ $color-block.body
 -- end: ftd.row
 
 -- end: color-block
+
+
+
+
+
+
+
+
+
+
+-- component color-block-dark:
+caption title:
+string dark:
+ftd.color bgcolor:
+optional body body:
+optional string border-dark: 
+optional string border-light: 
+optional ftd.color border: 
+optional string text-dark: 
+optional string text-light: 
+optional ftd.color text: 
+boolean copy: true
+string color-property: $ftd.clean-code(a = $color-block-dark.title, lang = ftd)
+string $copy-text: null
+boolean $copy-mouse-in: false
+boolean $mouse-in: true
+
+-- ftd.row:
+min-width.fixed.px if { ftd.device == "desktop" }: 400
+max-width.fixed.px if { ftd.device == "desktop" }: 400
+width: fill-container
+margin-top.px: 40
+
+-- ftd.column:
+anchor: parent
+right.px: 8
+top.px: 8
+z-index: 999
+$on-mouse-leave$: $ftd.set-string($a = $color-block-dark.copy-text, v = null)
+
+-- ftd.image:
+if: { color-block-dark.copy-text == "null" && color-block-dark.mouse-in }
+src: $assets.files.static.copy.svg
+src if { color-block-dark.copy-mouse-in }: $assets.files.static.copy-hover.svg
+$on-mouse-enter$: $ftd.set-bool($a = $color-block-dark.copy-mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $color-block-dark.copy-mouse-in, v = false)
+$on-click$: $ftd.copy-to-clipboard(a = $color-block-dark.color-property)
+$on-click$: $ftd.set-string($a = $color-block-dark.copy-text, v = Copied!)
+width.fixed.px: 12
+
+-- ftd.row:
+align-content: center
+spacing: space-between
+
+-- ftd.image:
+if: { color-block-dark.copy-text != "null" }
+src: $assets.files.static.tick-icon.svg
+width.fixed.px: 12
+
+-- ftd.text: $color-block-dark.copy-text
+if: { color-block-dark.copy-text != "null" }
+role: $inherited.types.fine-print
+color: #212738
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container
+padding-horizontal.px: 12
+padding-vertical.px: 15
+border-width.px: 1
+border-color: #EEEEEE
+border-radius.px: 6
+
+-- ftd.row:
+spacing.fixed.px: 15
+
+-- ftd.column:
+width.fixed.px if { ftd.device == "desktop" }: 145
+height.fixed.px if { ftd.device == "desktop" }: 100
+width.fixed.px: 100
+height.fixed.px: 80
+
+-- ftd.column: 
+if: { color-block-dark.border == NULL }
+width: fill-container
+height: fill-container
+border-radius.px: 6
+margin-top.px: -44
+background.solid: $color-block-dark.bgcolor
+border-width.px: 1
+border-color: #A0A0A0
+
+-- ftd.column:
+width: fill-container
+anchor: parent
+bottom.px: 0
+border-bottom-left-radius.px: 6
+border-bottom-right-radius.px: 6
+padding-horizontal.px: 10
+background.solid: rgba(0,0,0,.1)
+padding-vertical.px: 8
+
+-- ftd.text: $color-block-dark.dark
+role: $inherited.types.fine-print
+color: #FFFFFF
+text-transform: uppercase
+style: bold
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- ftd.column:
+if: { color-block-dark.border != NULL }
+width: fill-container
+height: fill-container
+border-radius.px: 6
+margin-top.px: -44
+border-width.px: 1
+border-color: #A0A0A0
+background.solid: $color-block-dark.bgcolor
+
+-- ftd.column:
+width: fill-container
+height.fixed.px: 33
+background.solid: $color-block-dark.border
+
+-- ftd.column:
+width: fill-container
+anchor: parent
+bottom.px: 0
+border-bottom-left-radius.px: 6
+border-bottom-right-radius.px: 6
+padding-horizontal.px: 10
+background.solid: rgba(0,0,0,.1)
+padding-vertical.px: 8
+
+-- ftd.text: $color-block-dark.border-dark
+role: $inherited.types.fine-print
+color: #FFFFFF
+text-transform: uppercase
+style: bold
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container
+height.fixed.px: 33
+background.solid: $color-block-dark.text
+
+-- ftd.column:
+width: fill-container
+anchor: parent
+bottom.px: 0
+border-bottom-left-radius.px: 6
+border-bottom-right-radius.px: 6
+padding-horizontal.px: 10
+background.solid: rgba(0,0,0,.1)
+padding-vertical.px: 8
+
+-- ftd.text: $color-block-dark.text-dark
+role: $inherited.types.fine-print
+color: #FFFFFF
+text-transform: uppercase
+style: bold
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container
+anchor: parent
+bottom.px: 0
+border-bottom-left-radius.px: 6
+border-bottom-right-radius.px: 6
+padding-horizontal.px: 10
+background.solid: rgba(0,0,0,.1)
+padding-vertical.px: 8
+
+-- ftd.text: $color-block-dark.dark
+role: $inherited.types.fine-print
+color: #FFFFFF
+text-transform: uppercase
+style: bold
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container
+spacing.fixed.px: 5
+
+-- ftd.text: $color-block-dark.title
+role: $inherited.types.copy-small
+color: #212738
+
+-- ftd.text:
+role: $inherited.types.copy-small
+color: #707070
+width.fixed.percent if { ftd.device == "mobile" }: 80
+
+$color-block-dark.body
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: color-block-dark
+
+
+
+
+
+
+
+
+
+
+-- component color-block-light:
+caption title:
+string light:
+ftd.color bgcolor:
+optional body body:
+optional string border-dark: 
+optional string border-light: 
+optional ftd.color border: 
+optional string text-dark: 
+optional string text-light: 
+optional ftd.color text: 
+boolean copy: true
+string color-property: $ftd.clean-code(a = $color-block-light.title, lang = ftd)
+string $copy-text: null
+boolean $copy-mouse-in: false
+boolean $mouse-in: true
+
+-- ftd.row:
+min-width.fixed.px if { ftd.device == "desktop" }: 400
+max-width.fixed.px if { ftd.device == "desktop" }: 400
+width: fill-container
+margin-top.px: 40
+
+-- ftd.column:
+anchor: parent
+right.px: 8
+top.px: 8
+z-index: 999
+$on-mouse-leave$: $ftd.set-string($a = $color-block-light.copy-text, v = null)
+
+-- ftd.image:
+if: { color-block-light.copy-text == "null" && color-block-light.mouse-in }
+src: $assets.files.static.copy.svg
+src if { color-block-light.copy-mouse-in }: $assets.files.static.copy-hover.svg
+$on-mouse-enter$: $ftd.set-bool($a = $color-block-light.copy-mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $color-block-light.copy-mouse-in, v = false)
+$on-click$: $ftd.copy-to-clipboard(a = $color-block-light.color-property)
+$on-click$: $ftd.set-string($a = $color-block-light.copy-text, v = Copied!)
+width.fixed.px: 12
+
+-- ftd.row:
+align-content: center
+spacing: space-between
+
+-- ftd.image:
+if: { color-block-light.copy-text != "null" }
+src: $assets.files.static.tick-icon.svg
+width.fixed.px: 12
+
+-- ftd.text: $color-block-light.copy-text
+if: { color-block-light.copy-text != "null" }
+role: $inherited.types.fine-print
+color: #212738
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container
+padding-horizontal.px: 12
+padding-vertical.px: 15
+border-width.px: 1
+border-color: #EEEEEE
+border-radius.px: 6
+
+-- ftd.row:
+spacing.fixed.px: 15
+
+-- ftd.column:
+width.fixed.px if { ftd.device == "desktop" }: 145
+height.fixed.px if { ftd.device == "desktop" }: 100
+width.fixed.px: 100
+height.fixed.px: 80
+
+-- ftd.column: 
+if: { color-block-light.border == NULL }
+width: fill-container
+height: fill-container
+border-radius.px: 6
+margin-top.px: -44
+background.solid: $color-block-light.light
+border-width.px: 1
+border-color: #A0A0A0
+
+-- ftd.column:
+width: fill-container
+anchor: parent
+bottom.px: 0
+border-bottom-left-radius.px: 6
+border-bottom-right-radius.px: 6
+padding-horizontal.px: 10
+background.solid: rgba(0,0,0,.1)
+padding-vertical.px: 8
+
+-- ftd.text: $color-block-light.light
+role: $inherited.types.fine-print
+color: #FFFFFF
+text-transform: uppercase
+style: bold
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- ftd.column:
+if: { color-block-light.border != NULL }
+width: fill-container
+height: fill-container
+border-radius.px: 6
+margin-top.px: -44
+border-width.px: 1
+border-color: #A0A0A0
+background.solid: $color-block-light.light
+
+-- ftd.column:
+width: fill-container
+height.fixed.px: 33
+background.solid: $color-block-light.border
+
+-- ftd.column:
+width: fill-container
+anchor: parent
+bottom.px: 0
+border-bottom-left-radius.px: 6
+border-bottom-right-radius.px: 6
+padding-horizontal.px: 10
+background.solid: rgba(0,0,0,.1)
+padding-vertical.px: 8
+
+-- ftd.text: $color-block-light.border-light
+role: $inherited.types.fine-print
+color: #FFFFFF
+text-transform: uppercase
+style: bold
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container
+height.fixed.px: 33
+background.solid: $color-block-light.text
+
+-- ftd.column:
+width: fill-container
+anchor: parent
+bottom.px: 0
+border-bottom-left-radius.px: 6
+border-bottom-right-radius.px: 6
+padding-horizontal.px: 10
+background.solid: rgba(0,0,0,.1)
+padding-vertical.px: 8
+
+-- ftd.text: $color-block-light.text-light
+role: $inherited.types.fine-print
+color: #FFFFFF
+text-transform: uppercase
+style: bold
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container
+anchor: parent
+bottom.px: 0
+border-bottom-left-radius.px: 6
+border-bottom-right-radius.px: 6
+padding-horizontal.px: 10
+background.solid: rgba(0,0,0,.1)
+padding-vertical.px: 8
+
+-- ftd.text: $color-block-light.light
+role: $inherited.types.fine-print
+color: #FFFFFF
+text-transform: uppercase
+style: bold
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container
+spacing.fixed.px: 5
+
+-- ftd.text: $color-block-light.title
+role: $inherited.types.copy-small
+color: #212738
+
+-- ftd.text:
+role: $inherited.types.copy-small
+color: #707070
+width.fixed.percent if { ftd.device == "mobile" }: 80
+
+$color-block-light.body
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: color-block-light
 
 
 
@@ -1495,9 +2018,9 @@ bgcolor: $colors-data.error.base
 border-dark: $colors-data.error.border.dark
 border-light: $colors-data.error.border.light
 border: $colors-data.error.border
-text-dark: $colors-data.error.border.dark
-text-light: $colors-data.error.border.light
-text: $colors-data.error.border
+text-dark: $colors-data.error.text.dark
+text-light: $colors-data.error.text.light
+text: $colors-data.error.text
 
 Error button with border, text and background of the color shown from top to
 bottom in this color box.
@@ -1538,9 +2061,9 @@ bgcolor: $colors-data.success.base
 border-dark: $colors-data.success.border.dark
 border-light: $colors-data.success.border.light
 border: $colors-data.success.border
-text-dark: $colors-data.success.border.dark
-text-light: $colors-data.success.border.light
-text: $colors-data.success.border
+text-dark: $colors-data.success.text.dark
+text-light: $colors-data.success.text.light
+text: $colors-data.success.text
 
 Success button with border, text and background of the color shown from top to
 bottom in this color box.
@@ -1581,9 +2104,9 @@ bgcolor: $colors-data.warning.base
 border-dark: $colors-data.warning.border.dark
 border-light: $colors-data.warning.border.light
 border: $colors-data.warning.border
-text-dark: $colors-data.warning.border.dark
-text-light: $colors-data.warning.border.light
-text: $colors-data.warning.border
+text-dark: $colors-data.warning.text.dark
+text-light: $colors-data.warning.text.light
+text: $colors-data.warning.text
 
 Warning button with border, text and background of the color shown from top to
 bottom in this color box.
@@ -1623,9 +2146,9 @@ bgcolor: $colors-data.info.base
 border-dark: $colors-data.info.border.dark
 border-light: $colors-data.info.border.light
 border: $colors-data.info.border
-text-dark: $colors-data.info.border.dark
-text-light: $colors-data.info.border.light
-text: $colors-data.info.border
+text-dark: $colors-data.info.text.dark
+text-light: $colors-data.info.text.light
+text: $colors-data.info.text
 
 Info button with border, text and background of the color shown from top to
 bottom in this color box.
