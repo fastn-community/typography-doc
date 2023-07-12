@@ -22,7 +22,7 @@ name: default-colors
 -- package: THEME
 name: `<color scheme name>`
 logo: $assets.files.static.fastn-logo.svg
-subtitle: Adding warmth and energy to your designs with the `<add color scheme name here>` Color Scheme
+subtitle: `<add color scheme name here>` : Color Scheme
 colors: $colors-data
 
 -- cp.components-pallete:
@@ -532,6 +532,7 @@ children package-wrap:
 optional string subtitle:
 ftd.color-scheme colors: $ftd.default-colors
 ftd.type-data types: $typo.types
+boolean $mouse-in: false
 
 -- ftd.column:
 width: fill-container
@@ -595,10 +596,55 @@ padding-horizontal.px: 18
 padding-vertical.px: 18
 background.solid: #FFFFFF
 
+-- ftd.row:
+align-content: center
+spacing.fixed.px: 24
+
 -- ftd.text: $package.subtitle
 role: $inherited.types.heading-small
 color: #212738
 style: bold
+
+-- ftd.row:
+align-content: center
+spacing.fixed.px: 12
+
+/-- ftd.image:
+src: $assets.files.static.dms-system.svg
+if: { ftd.follow-system-dark-mode }
+width.fixed.px: 32
+
+-- ftd.image:
+if: { ftd.dark-mode && !ftd.follow-system-dark-mode }
+src: $assets.files.static.dark-icon.svg
+width.fixed.px: 28
+height.fixed.px: 28
+background.solid if { package.mouse-in }: #CCC
+border-radius.px: 100
+padding.px: 2
+$on-click$: $ftd.enable-light-mode()
+$on-mouse-enter$: $ftd.set-bool($a = $package.mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $package.mouse-in, v = false)
+
+-- ftd.image:
+if: { !ftd.dark-mode && !ftd.follow-system-dark-mode }
+src: $assets.files.static.light-icon.svg
+width.fixed.px: 28
+height.fixed.px: 28
+background.solid if { package.mouse-in }: #CCC
+border-radius.px: 100
+padding.px: 2
+$on-mouse-enter$: $ftd.set-bool($a = $package.mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $package.mouse-in, v = false)
+$on-click$: $ftd.enable-dark-mode()
+
+-- ftd.text: ☜ Toggle between dark / light mode
+role: $inherited.types.button-small
+color: #212738
+
+-- end: ftd.row
+
+-- end: ftd.row
 
 -- ftd.column:
 width: fill-container
@@ -632,6 +678,7 @@ caption title:
 colors list pallete:
 boolean $dark-mode: true
 boolean $is-active: false
+boolean $mouse-in: false
 
 -- ftd.column:
 width: fill-container
@@ -639,9 +686,12 @@ margin-top.px: 60
 
 -- ftd.row:
 width: fill-container
-spacing.fixed.px: 24
 border-bottom-width.px: 1
 border-color: #212738
+
+-- ftd.row:
+spacing.fixed.px: 24
+align-content: center
 
 -- ftd.text: $color-pallete.title
 role: $inherited.types.heading-tiny
@@ -653,54 +703,41 @@ padding-top.px: 8
 align-self: center
 
 -- ftd.row:
-border-width.px if { color-pallete.dark-mode && $color-pallete.is-active }: 1
-border-left-color if { color-pallete.dark-mode && $color-pallete.is-active }: #212738
-border-top-color if { color-pallete.dark-mode && $color-pallete.is-active }: #212738
-border-right-color if { color-pallete.dark-mode && $color-pallete.is-active }: #212738
-border-bottom-color if { color-pallete.dark-mode && $color-pallete.is-active }: #FFFFFF
-margin-bottom.px if { color-pallete.dark-mode && $color-pallete.is-active }: -1
-border-top-left-radius.px if { color-pallete.dark-mode && $color-pallete.is-active }: 4
-border-top-right-radius.px if { color-pallete.dark-mode && $color-pallete.is-active }: 4
 padding.px: 12
 spacing.fixed.px: 12
-
--- ftd.text: Dark Mode
-role: $inherited.types.button-small
-color: #212738
-$on-click$: $ftd.set-bool($a = $color-pallete.dark-mode, v = true)
-$on-click$: $ftd.set-bool($a = $color-pallete.is-active, v = true)
-color if { color-pallete.dark-mode }: #ef8435
+align-content: center
 
 -- ftd.image:
-src: $assets.files.static.dms-night.svg
-width.fixed.px: 24
-height.fixed.px: 24
+if: { !color-pallete.dark-mode }
+src: $assets.files.static.dark-icon.svg
+width.fixed.px: 28
+height.fixed.px: 28
+$on-click$: $ftd.toggle($a = $color-pallete.dark-mode)
+$on-click$: $ftd.set-bool($a = $color-pallete.is-active, v = true)
+background.solid if { color-pallete.mouse-in }: #CCC
+border-radius.px: 100
+padding.px: 2
+$on-mouse-enter$: $ftd.set-bool($a = $color-pallete.mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $color-pallete.mouse-in, v = false)
+
+-- ftd.image:
+if: { color-pallete.dark-mode}
+src: $assets.files.static.light-icon.svg
+width.fixed.px: 28
+height.fixed.px: 28
+$on-click$: $ftd.toggle($a = $color-pallete.dark-mode)
+$on-click$: $ftd.set-bool($a = $color-pallete.is-active, v = true)
+background.solid if { color-pallete.mouse-in }: #CCC
+border-radius.px: 100
+padding.px: 2
+$on-mouse-enter$: $ftd.set-bool($a = $color-pallete.mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $color-pallete.mouse-in, v = false)
+
+-- ftd.text: ☜ Toggle between dark / light mode
+role: $inherited.types.button-small
+color: #212738
 
 -- end: ftd.row
-
--- ftd.row:
-border-width.px if { !color-pallete.dark-mode && $color-pallete.is-active }: 1
-border-left-color if { !color-pallete.dark-mode && $color-pallete.is-active }: #212738
-border-top-color if { !color-pallete.dark-mode && $color-pallete.is-active }: #212738
-border-right-color if { !color-pallete.dark-mode && $color-pallete.is-active }: #212738
-border-bottom-color if { !color-pallete.dark-mode && $color-pallete.is-active }: #FFFFFF
-margin-bottom.px if { !color-pallete.dark-mode && $color-pallete.is-active }: -1
-border-top-left-radius.px if { !color-pallete.dark-mode && $color-pallete.is-active }: 4
-border-top-right-radius.px if { !color-pallete.dark-mode && $color-pallete.is-active }: 4
-padding.px: 12
-spacing.fixed.px: 12
-
--- ftd.text: Light Mode
-role: $inherited.types.button-small
-color: #212738
-color if { !color-pallete.dark-mode }: #ef8435
-$on-click$: $ftd.set-bool($a = $color-pallete.dark-mode, v = false)
-$on-click$: $ftd.set-bool($a = $color-pallete.is-active, v = true)
-
--- ftd.image:
-src: $assets.files.static.dms-day.svg
-width.fixed.px: 24
-height.fixed.px: 24
 
 -- end: ftd.row
 
