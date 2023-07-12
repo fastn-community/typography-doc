@@ -22,7 +22,7 @@ name: default-colors
 -- package: THEME
 name: `<color scheme name>`
 logo: $assets.files.static.fastn-logo.svg
-subtitle: `<add color scheme name here>` : Color Scheme
+subtitle: <add color scheme name here> : Color Scheme
 colors: $colors-data
 
 -- cp.components-pallete:
@@ -603,20 +603,14 @@ spacing.fixed.px: 24
 -- ftd.text: $package.subtitle
 role: $inherited.types.heading-small
 color: #212738
-style: bold
 
 -- ftd.row:
 align-content: center
-spacing.fixed.px: 12
-
-/-- ftd.image:
-src: $assets.files.static.dms-system.svg
-if: { ftd.follow-system-dark-mode }
-width.fixed.px: 32
+spacing.fixed.px: 4
 
 -- ftd.image:
 if: { ftd.dark-mode && !ftd.follow-system-dark-mode }
-src: $assets.files.static.dark-icon.svg
+src: $assets.files.static.light-icon.svg
 width.fixed.px: 28
 height.fixed.px: 28
 background.solid if { package.mouse-in }: #CCC
@@ -628,7 +622,7 @@ $on-mouse-leave$: $ftd.set-bool($a = $package.mouse-in, v = false)
 
 -- ftd.image:
 if: { !ftd.dark-mode && !ftd.follow-system-dark-mode }
-src: $assets.files.static.light-icon.svg
+src: $assets.files.static.dark-icon.svg
 width.fixed.px: 28
 height.fixed.px: 28
 background.solid if { package.mouse-in }: #CCC
@@ -638,8 +632,8 @@ $on-mouse-enter$: $ftd.set-bool($a = $package.mouse-in, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $package.mouse-in, v = false)
 $on-click$: $ftd.enable-dark-mode()
 
--- ftd.text: ☜ Toggle between dark / light mode
-role: $inherited.types.button-small
+-- ftd.text: Dark / Light mode
+role: $inherited.types.fine-print
 color: #212738
 
 -- end: ftd.row
@@ -697,14 +691,12 @@ align-content: center
 role: $inherited.types.heading-tiny
 color: #212738
 style: bold
-padding-top.px: 8
 
 -- ftd.row:
-align-self: center
 
 -- ftd.row:
 padding.px: 12
-spacing.fixed.px: 12
+spacing.fixed.px: 4
 align-content: center
 
 -- ftd.image:
@@ -733,8 +725,8 @@ padding.px: 2
 $on-mouse-enter$: $ftd.set-bool($a = $color-pallete.mouse-in, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $color-pallete.mouse-in, v = false)
 
--- ftd.text: ☜ Toggle between dark / light mode
-role: $inherited.types.button-small
+/-- ftd.text: Dark / Light mode
+role: $inherited.types.fine-print
 color: #212738
 
 -- end: ftd.row
