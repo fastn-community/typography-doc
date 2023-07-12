@@ -109,32 +109,6 @@ child: $components-pallete.components.2
 
 -- end: ftd.column
 
--- ftd.row:
-anchor if { ftd.device == "desktop" }: parent
-anchor if { ftd.device == "mobile" }: window
-right.px: 20
-top.px if { ftd.device == "desktop" }: 20
-right.px if { ftd.device == "mobile" }: 24
-bottom.px if { ftd.device == "mobile" }: 24
-z-index: 99999999999999
-
--- ftd.image:
-src: $assets.files.static.dms-system.svg
-if: { ftd.follow-system-dark-mode }
-$on-click$: $ftd.enable-light-mode()
-
--- ftd.image:
-src: $assets.files.static.dms-day.svg
-if: { !ftd.dark-mode && !ftd.follow-system-dark-mode }
-$on-click$: $ftd.enable-dark-mode()
-
--- ftd.image:
-src: $assets.files.static.dms-night.svg
-if: { ftd.dark-mode && !ftd.follow-system-dark-mode }
-$on-click$: $ftd.enable-system-mode()
-
--- end: ftd.row
-
 -- end: ftd.column
 
 -- end: components-pallete
