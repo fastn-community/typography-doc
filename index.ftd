@@ -1,10 +1,11 @@
 -- import: fastn
 -- import: fastn/processors as pr
--- import: fastn-community.github.io/color-doc/assets
--- import: fastn-community.github.io/color-doc/colors
--- import: fastn-community.github.io/color-doc/components as cp
+-- import: fastn-community.github.io/typography-doc/assets
+-- import: fastn-community.github.io/typography-doc/colors
+-- import: fastn-community.github.io/typography-doc/components as cp
 -- import: fastn-community.github.io/footer
 -- import: fastn-community.github.io/inter-typography as typo
+-- import: fastn-community.github.io/typography-doc/types
 
 -- string figma-json:
 $processor$: pr.figma-cs-token
@@ -19,11 +20,12 @@ name: default-colors
 
 
 
--- package: THEME
-name: `<color scheme name>`
+-- package: Typography
+name: `<typography name>`
 logo: $assets.files.static.fastn-logo.svg
-subtitle: <add color scheme name here> : Color Scheme
+subtitle: `<add typography name here>` : Color Scheme
 colors: $colors-data
+types: $typo.types
 
 -- cp.components-pallete:
 
@@ -143,7 +145,7 @@ copyright: Copyright © 2023 - [FifthTry.com](https://www.fifthtry.com/)
 -- end: cp.components-pallete
 
 -- color-scheme: 
-tagline: Adding warmth and energy to your designs with the `<add color scheme name here>` Color Scheme
+tagline: Adding warmth and energy to your pages with the `<add typography name here>`
 
 -- color-scheme.rightbar:
 
@@ -154,18 +156,18 @@ link: https://fastn.com/
 
 -- title-with-link: Github Link
 icon: $assets.files.static.link-icon.svg
-link-text: github.com/fastn-community/color-doc
-link: https://github.com/fastn-community/color-doc
+link-text: github.com/fastn-community/typography-doc
+link: https://github.com/fastn-community/typography-doc
 
 -- title-with-link: License Information
 icon: $assets.files.static.bsd-license-icon.svg
 link-text: BSD 3-Clause License
-link: https://github.com/fastn-community/color-doc/blob/main/LICENSE
+link: https://github.com/fastn-community/typography-doc/blob/main/LICENSE
 
 -- title-with-link: Author Information
 icon: $assets.files.static.author-icon.svg
 link-text: Contributors
-link: https://github.com/fastn-community/color-doc/graphs/contributors
+link: https://github.com/fastn-community/typography-doc/graphs/contributors
 
 -- title-with-link: Discord Channel 
 icon: $assets.files.static.discord-icon.svg
@@ -191,11 +193,11 @@ link: https://fastn.com/figma-to-fastn-cs/
 
 -- color-scheme.body:
 
-The colours we use in our designs can have a significant impact on the mood and
-feelings they inspire. The perfect colour palette may take your design to the
-next level, whether you're creating a website, app, or anything else. The `<add
-color scheme name here>` colour scheme is ideal for designs that aim to portray
-strength, warmth, and growth.
+<repo_name> refers to the art and technique of arranging typefaces (fonts) in a
+visually appealing and effective manner. It involves the design, selection, and
+arrangement of various elements such as typefaces, letterforms, line spacing,
+line length, and other typographic elements to create visually appealing and
+readable text.
 
 -- cb.code: Figma tokens json
 lang: json
@@ -206,101 +208,89 @@ $figma-json
 
 -- end: color-scheme
 
--- how-to-use-cs: How to use this colour scheme 
+-- how-to-use-cs: How to use this typography
 link: #how-to-use-cs
 
-The importance of colour in a website’s overall look and feel is well known. The
-right colour scheme can evoke emotions, create visual interest, and direct a
-user’s attention to specific elements on a page. That’s why the ftd colour
-scheme framework provides an easy and powerful way to define colour schemes and
-apply them to your website. 
-
-To start, you can choose from existing colour scheme packages or create your own
-custom colour scheme. To apply a colour scheme package on top of your package,
+To start, you can choose from existing typography packages or create your own
+custom typography. To apply a typography package on top of your package,
 you’ll need to import it into one of the module. 
 
 For example, let’s say you’re using the page component from `doc-site` package
-and want to apply the <add color scheme name here> scheme package on top of it.
-You first create a new module, let’s say my-ds.ftd. Then you import <add color
-scheme name here> package module and then create a new component called page
-there. 
+and want to apply the <repo_name> package on top of it.
 
-Here’s what your my-ds.ftd module and FASTN.ftd import would look like:
+To use `<repo_name>` into your [fastn](https://fastn.com/) web project, 
+add below into `FASTN.ftd` file:
 
--- cb.code: Add `<add color scheme name here>` as dependency into FASTN.ftd
+-- cb.code:
 lang: ftd
 
-\-- fastn.dependency: `<add color scheme name here>`
+\-- fastn.dependency: <user_name>.github.io/<repo_name>
 
--- cb.code: my-ds.ftd module
+-- markdown:
+
+**Option 1:** for documentation templates like [doc-site](https://fastn-community.github.io/doc-site/types/) 
+
+Follow below steps:
+
+-- markdown:
+
+Modify `FASTN/ds.ftd` module which is already added inside your 
+[doc-site](https://fastn-community.github.io/doc-site/types/) 
+package.
+
+Replace below line of `FASTN/ds.ftd` file:
+
+-- cb.code:
 lang: ftd
-download: my-ds.ftd
 
-\-- import: `<add color scheme name here>` as my-cs
-\-- import: fastn-community.github.io/doc-site as ds
+\-- import: fastn-community.github.io/roboto-typography as typo
 
-\-- component page: 
-children wrapper:
-optional body body:
+-- markdown:
 
-\-- ds.page:
-title: $page.title
-body: $page.body
-wrapper: $page.wrapper
-colors: $my-cs.main
+with:
 
-\-- end: page
+-- cb.code:
+lang: ftd
+
+\-- import: <user_name>.github.io/<repo_name> as typo
+
+
+-- markdown: 
+
+**Option 2:** for custom [fastn](https://fastn.com/) projects
+
+-- cb.code: Import `<repo_name>` inside your `ftd` file
+lang: ftd
+
+\-- import: <user_name>.github.io/<repo_name> as typo
 
 
 -- markdown:
 
-After creating my-ds.page component, use this in rest of the module of your
-package instead of ds.page. 
+Now add `$typo.types` to your component, as shown in below example:
 
-Once you have imported the colour scheme package and created a new component
-my-ds.page, you can use it throughout your website instead of the ds.page
-component. 
+-- cb.code: Copy below code snippet inside your `ftd` file, then deploy and test
+lang: ftd
 
-With just a few lines of code, you can dramatically change the look and feel of
-your website using the ftd colour scheme.
+\-- example: This is example of types used from `<repo_name>`
+
+\-- component example:
+caption title:
+ftd.type-data types: $typo.types
+
+\-- ftd.text: $example.title
+role: $inherited.types.heading-hero
+color: $inherited.colors.text
+
+\-- end: example
 
 -- end: how-to-use-cs
 
--- color-pallete: Standalone colors
-pallete: $standalone
 
--- color-pallete: Background Colors
-pallete: $background-colors
+-- display-type:
+types: $typo.types
 
--- color-pallete: CTA Primary Colors
-pallete: $cta-primary-colors
 
--- color-pallete: CTA Secondary Colors
-pallete: $cta-secondary-colors
-
--- color-pallete: CTA Tertiary Colors
-pallete: $cta-tertiary-colors
-
--- color-pallete: CTA Danger Colors
-pallete: $cta-danger-colors
-
--- color-pallete: Error Colors
-pallete: $error-colors
-
--- color-pallete: Success Colors
-pallete: $success-colors
-
--- color-pallete: Warning Colors
-pallete: $warning-colors
-
--- color-pallete: Info Colors
-pallete: $info-colors
-
--- color-pallete: Accent Colors
-pallete: $accent-colors
-
--- color-pallete: Custom Colors
-pallete: $custom-colors
 
 -- body-with-links:
 github-text: github.com/fastn-stack/fastn
@@ -353,13 +343,13 @@ spacing.fixed.px: 24
 -- ftd.text: $color-scheme.tagline
 if: { color-scheme.tagline != NULL }
 role: $inherited.types.heading-tiny
-color: #212738
+color: $inherited.colors.text
 style: bold
 
 -- ftd.text: 
 if: { color-scheme.body != NULL}
 role: $inherited.types.copy-regular
-color: #212738
+color: $inherited.colors.text
 
 $color-scheme.body
 
@@ -396,13 +386,13 @@ spacing.fixed.px: 24
 -- ftd.text: $color-scheme.tagline
 if: { color-scheme.tagline != NULL }
 role: $inherited.types.heading-tiny
-color: #212738
+color: $inherited.colors.text
 style: bold
 
 -- ftd.text: 
 if: { color-scheme.body != NULL}
 role: $inherited.types.copy-regular
-color: #212738
+color: $inherited.colors.text
 
 $color-scheme.body
 
@@ -466,7 +456,7 @@ width: fill-container
 spacing.fixed.px: 6
 
 -- ftd.text: $title-with-link.title
-color: #212738
+color: $inherited.colors.text
 role: $inherited.types.button-small
 style: bold
 
@@ -508,7 +498,7 @@ body body:
 
 -- ftd.text: 
 role: $inherited.types.copy-regular
-color: #212738
+color: $inherited.colors.text
 classes: markdown
 
 $markdown.body
@@ -568,12 +558,12 @@ height.fixed.px: 76
 spacing.fixed.px: 15
 
 -- ftd.text: $package.title
-color: #212738
+color: $inherited.colors.text
 role: $inherited.types.heading-small
 style: bold
 
 -- ftd.text: $package.name
-color: #212738
+color: $inherited.colors.text
 role: $inherited.types.button-large
 white-space: nowrap
 style: bold
@@ -594,7 +584,7 @@ padding-horizontal.px if { ftd.device == "desktop" }: 70
 padding-vertical.px if { ftd.device == "desktop" }: 60
 padding-horizontal.px: 18
 padding-vertical.px: 18
-background.solid: #FFFFFF
+background.solid: $inherited.colors.background.base
 
 -- ftd.row:
 align-content: center
@@ -602,7 +592,7 @@ spacing.fixed.px: 24
 
 -- ftd.text: $package.subtitle
 role: $inherited.types.heading-small
-color: #212738
+color: $inherited.colors.text
 
 -- ftd.row:
 align-content: center
@@ -634,7 +624,7 @@ $on-click$: $ftd.enable-dark-mode()
 
 -- ftd.text: Dark / Light mode
 role: $inherited.types.fine-print
-color: #212738
+color: $inherited.colors.text
 
 -- end: ftd.row
 
@@ -681,7 +671,7 @@ margin-top.px: 60
 -- ftd.row:
 width: fill-container
 border-bottom-width.px: 1
-border-color: #212738
+border-color: $inherited.colors.text
 
 -- ftd.row:
 spacing.fixed.px: 24
@@ -689,7 +679,7 @@ align-content: center
 
 -- ftd.text: $color-pallete.title
 role: $inherited.types.heading-tiny
-color: #212738
+color: $inherited.colors.text
 style: bold
 
 -- ftd.row:
@@ -727,7 +717,7 @@ $on-mouse-leave$: $ftd.set-bool($a = $color-pallete.mouse-in, v = false)
 
 /-- ftd.text: Dark / Light mode
 role: $inherited.types.fine-print
-color: #212738
+color: $inherited.colors.text
 
 -- end: ftd.row
 
@@ -836,7 +826,7 @@ width.fixed.px: 12
 -- ftd.text: $color-block.copy-text
 if: { color-block.copy-text != "null" }
 role: $inherited.types.fine-print
-color: #212738
+color: $inherited.colors.text
 
 -- end: ftd.row
 
@@ -1009,7 +999,7 @@ spacing.fixed.px: 5
 
 -- ftd.text: $color-block.title
 role: $inherited.types.copy-small
-color: #212738
+color: $inherited.colors.text
 
 -- ftd.text:
 role: $inherited.types.copy-small
@@ -1089,7 +1079,7 @@ width.fixed.px: 12
 -- ftd.text: $color-block-dark.copy-text
 if: { color-block-dark.copy-text != "null" }
 role: $inherited.types.fine-print
-color: #212738
+color: $inherited.colors.text
 
 -- end: ftd.row
 
@@ -1230,7 +1220,7 @@ spacing.fixed.px: 5
 
 -- ftd.text: $color-block-dark.title
 role: $inherited.types.copy-small
-color: #212738
+color: $inherited.colors.text
 
 -- ftd.text:
 role: $inherited.types.copy-small
@@ -1310,7 +1300,7 @@ width.fixed.px: 12
 -- ftd.text: $color-block-light.copy-text
 if: { color-block-light.copy-text != "null" }
 role: $inherited.types.fine-print
-color: #212738
+color: $inherited.colors.text
 
 -- end: ftd.row
 
@@ -1451,7 +1441,7 @@ spacing.fixed.px: 5
 
 -- ftd.text: $color-block-light.title
 role: $inherited.types.copy-small
-color: #212738
+color: $inherited.colors.text
 
 -- ftd.text:
 role: $inherited.types.copy-small
@@ -1497,18 +1487,18 @@ margin-bottom.px: 40
 -- ftd.text: Get in touch!
 role: $inherited.types.heading-small
 style: bold
-color: #212738
+color: $inherited.colors.text
 
 -- ftd.text: 
 role: $inherited.types.copy-regular
-color: #212738
+color: $inherited.colors.text
 
 $body-with-links.body
 
 -- ftd.row:
 width: fill-container
 role: $inherited.types.copy-regular
-color: #212738
+color: $inherited.colors.text
 spacing.fixed.px: 8
 
 -- ftd.text: GitHub:
@@ -1521,7 +1511,7 @@ link: $body-with-links.github-url
 -- ftd.row:
 width: fill-container
 role: $inherited.types.copy-regular
-color: #212738
+color: $inherited.colors.text
 spacing.fixed.px: 8
 
 -- ftd.text: Discord:
@@ -1534,7 +1524,7 @@ link: $body-with-links.discord-url
 -- ftd.row:
 width: fill-container
 role: $inherited.types.copy-regular
-color: #212738
+color: $inherited.colors.text
 spacing.fixed.px: 8
 
 -- ftd.text: Tutorials:
@@ -1573,7 +1563,7 @@ spacing.fixed.px: 10
 
 -- ftd.text: $how-to-use-cs.title
 role: $inherited.types.heading-tiny
-color: #212738
+color: $inherited.colors.text
 style: bold
 region: h3
 id: how-to-use-cs
@@ -1587,7 +1577,7 @@ link: $how-to-use-cs.link
 
 -- ftd.text: 
 role: $inherited.types.copy-regular
-color: #212738
+color: $inherited.colors.text
 margin-bottom.px: 20
 
 $how-to-use-cs.body
@@ -1611,694 +1601,446 @@ children: $how-to-use-cs.childs
 
 
 
--- ftd.color-scheme main:
-background: $colors.background-
-border: $colors.border-
-border-strong: $colors.border-strong-
-text: $colors.text-
-text-strong: $colors.text-strong-
-shadow: $colors.shadow-
-scrim: $colors.scrim-
-cta-primary: $colors.cta-primary-
-cta-secondary: $colors.cta-secondary-
-cta-tertiary: $colors.cta-tertiary-
-cta-danger: $colors.cta-danger-
-accent: $colors.accent-
-error: $colors.error-btb-
-success: $colors.success-btb-
-info: $colors.info-btb-
-warning: $colors.warning-btb-
-custom: $colors.custom-
+-- component types-box:
+optional caption name:
+string title:
+ftd.type mobile:
+ftd.type desktop:
+ftd.responsive-type types-role: 
+string types-property: $ftd.clean-code(a = $types-box.name, lang = ftd)
+boolean $mouse-in: false
+string $copy-text: null
+
+-- ftd.column:
+width: fill-container
+padding-vertical.px: 16
+border-bottom-width.px: 1
+border-color: $inherited.colors.border-strong
+
+-- ftd.row:
+width: fill-container
+
+-- ftd.text: $types-box.title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+width.fixed.percent: 20
+
+-- ftd.column:
+width: fill-container
+
+-- ftd.row:
+align-content: center
+spacing.fixed.px: 16
+
+-- ftd.text: $types-box.name
+if: { types-box.name != NULL }
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- ftd.image:
+;;if: { types-box.name == "null" && types-box.mouse-in }
+src: $assets.files.assets.copy-hover.svg
+src if { types-box.mouse-in }: $assets.files.assets.copy.svg
+$on-mouse-enter$: $ftd.set-bool($a = $types-box.mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $types-box.mouse-in, v = false)
+$on-click$: $ftd.copy-to-clipboard(a = $types-box.types-property)
+$on-click$: $ftd.set-string($a = $types-box.copy-text, v = Copied!)
+width.fixed.px: 12
+$on-mouse-leave$: $ftd.set-string($a = $types-box.copy-text, v = null)
+
+-- ftd.row:
+align-content: center
+spacing: space-between
+
+-- ftd.image:
+if: { types-box.copy-text != "null" }
+src: $assets.files.assets.tick-icon.svg
+width.fixed.px: 12
+
+-- ftd.text: $types-box.copy-text
+if: { types-box.copy-text != "null" }
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- ftd.text:
+role: $types-box.types-role
+color: $inherited.colors.text-strong
+padding-vertical.px: 24
+
+The quick brown fox jumps over the lazy dog.
 
+-- ftd.column:
+width: fill-container
+spacing.fixed.px: 12
+
+-- ftd.row:
+spacing.fixed.px: 4
+wrap: true
+width: fill-container
+align-self: start
+opacity: 0.6
+
+-- ftd.text: Mobile:
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+style: bold
+
+-- ftd.row:
+spacing.fixed.px: 8
+
+-- ftd.text: font-family:
+role: $inherited.types.fine-print
+color: $inherited.colors.custom.nine
+
+-- ftd.text: $types-box.mobile.font-family
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+
+-- end: ftd.row
+
+-- ftd.text: |
+role: $inherited.types.fine-print
+color: $inherited.colors.text
 
+-- ftd.row:
+spacing.fixed.px: 8
 
+-- ftd.text: font-size:
+role: $inherited.types.fine-print
+color: $inherited.colors.custom.nine
 
+-- ftd.integer: $types-box.mobile.weight
+role: $inherited.types.fine-print
+color: $inherited.colors.text
 
+-- end: ftd.row
 
+-- ftd.text: |
+role: $inherited.types.fine-print
+color: $inherited.colors.text
 
+-- ftd.row:
+spacing.fixed.px: 8
 
+-- ftd.text: font-weight:
+role: $inherited.types.fine-print
+color: $inherited.colors.custom.nine
 
+-- ftd.integer: $types-box.mobile.weight
+role: $inherited.types.fine-print
+color: $inherited.colors.text
 
--- record colors:
-caption title:
-string dark:
-string light:
-ftd.color bgcolor:
-optional body body:
-optional string border-dark: 
-optional string border-light: 
-optional ftd.color border: 
-optional string text-dark: 
-optional string text-light: 
-optional ftd.color text: 
+-- end: ftd.row
 
+-- ftd.text: |
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
 
--- colors list standalone:
+-- ftd.row:
+spacing.fixed.px: 8
 
--- colors: \$inherited.colors.border
-dark: $colors-data.border.dark
-light: $colors-data.border.light
-bgcolor: $colors-data.border
+-- ftd.text: line-height:
+role: $inherited.types.fine-print
+color: $inherited.colors.custom.nine
 
-We use this color for border color.
+-- ftd.integer: $types-box.mobile.weight
+role: $inherited.types.fine-print
+color: $inherited.colors.text
 
--- colors: \$inherited.colors.border-strong
-dark: $colors-data.border-strong.dark
-light: $colors-data.border-strong.light
-bgcolor: $colors-data.border-strong
+-- end: ftd.row
 
-We use this color for strong border color.
+-- ftd.text: |
+role: $inherited.types.fine-print
+color: $inherited.colors.text
 
--- colors: \$inherited.colors.text
-dark: $colors-data.text.dark
-light: $colors-data.text.light
-bgcolor: $colors-data.text
+-- ftd.row:
+spacing.fixed.px: 8
 
-We use this color for text.
+-- ftd.text: letter-spacing:
+role: $inherited.types.fine-print
+color: $inherited.colors.custom.nine
 
--- colors: \$inherited.colors.text-strong
-dark: $colors-data.text-strong.dark
-light: $colors-data.text-strong.light
-bgcolor: $colors-data.text-strong
+-- ftd.integer: $types-box.mobile.weight
+role: $inherited.types.fine-print
+color: $inherited.colors.text
 
-We use this color for strong text.
+-- end: ftd.row
 
--- colors: \$inherited.colors.shadow
-dark: $colors-data.shadow.dark
-light: $colors-data.shadow.light
-bgcolor: $colors-data.shadow
+-- end: ftd.row
 
-We use this color for shadow.
+-- ftd.row:
+spacing.fixed.px: 4
+wrap: true
+width: fill-container
+align-self: start
+opacity: 0.6
 
--- colors: \$inherited.colors.scrim
-dark: $colors-data.scrim.dark
-light: $colors-data.scrim.light
-bgcolor: $colors-data.scrim
+-- ftd.text: Desktop:
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+style: bold
 
-We use this color for scrim.
+-- ftd.row:
+spacing.fixed.px: 8
+align-content: center
 
--- end: standalone
+-- ftd.text: font-family:
+role: $inherited.types.fine-print
+color: $inherited.colors.custom.nine
 
+-- ftd.text: $types-box.desktop.font-family
+role: $inherited.types.fine-print
+color: $inherited.colors.text
 
+-- end: ftd.row
 
+-- ftd.text: |
+role: $inherited.types.fine-print
+color: $inherited.colors.text
 
--- colors list background-colors:
+-- ftd.row:
+spacing.fixed.px: 8
+align-content: center
 
--- colors: \$inherited.colors.background.base
-dark: $colors-data.background.base.dark
-light: $colors-data.background.base.light
-bgcolor: $colors-data.background.base
+-- ftd.text: font-size:
+role: $inherited.types.fine-print
+color: $inherited.colors.custom.nine
 
-We use this color for base background.
+-- ftd.integer: $types-box.mobile.weight
+role: $inherited.types.fine-print
+color: $inherited.colors.text
 
--- colors: \$inherited.colors.background.step-1
-dark: $colors-data.background.step-1.dark
-light: $colors-data.background.step-1.light
-bgcolor: $colors-data.background.step-1
+-- end: ftd.row
 
-We use this color for background step-1 such as sidebar etc.
+-- ftd.text: |
+role: $inherited.types.fine-print
+color: $inherited.colors.text
 
--- colors: \$inherited.colors.background.step-2
-dark: $colors-data.background.step-2.dark
-light: $colors-data.background.step-2.light
-bgcolor: $colors-data.background.step-2
+-- ftd.row:
+spacing.fixed.px: 8
+align-content: center
 
-We use this color as background step-2 such as for background card etc.
+-- ftd.text: font-weight:
+role: $inherited.types.fine-print
+color: $inherited.colors.custom.nine
 
--- colors: \$inherited.colors.background.code
-dark: $colors-data.background.code.dark
-light: $colors-data.background.code.light
-bgcolor: $colors-data.background.code
+-- ftd.integer: $types-box.desktop.weight
+role: $inherited.types.fine-print
+color: $inherited.colors.text
 
-We use this color for background code.
+-- end: ftd.row
 
--- colors: \$inherited.colors.background.overlay
-dark: $colors-data.background.overlay.dark
-light: $colors-data.background.overlay.light
-bgcolor: $colors-data.background.overlay
+-- ftd.text: |
+role: $inherited.types.fine-print
+color: $inherited.colors.text
 
-We use this color for background overlay.
+-- ftd.row:
+spacing.fixed.px: 8
+align-content: center
 
--- end: background-colors
+-- ftd.text: line-height:
+role: $inherited.types.fine-print
+color: $inherited.colors.custom.nine
 
+-- ftd.integer: $types-box.desktop.weight
+role: $inherited.types.fine-print
+color: $inherited.colors.text
 
+-- end: ftd.row
 
+-- ftd.text: |
+role: $inherited.types.fine-print
+color: $inherited.colors.text
 
+-- ftd.row:
+spacing.fixed.px: 8
+align-content: center
 
--- colors list cta-primary-colors:
+-- ftd.text: letter-spacing:
+role: $inherited.types.fine-print
+color: $inherited.colors.custom.nine
 
--- colors: \$inherited.colors.cta-primary.base
-dark: $colors-data.cta-primary.base.dark
-light: $colors-data.cta-primary.base.light
-bgcolor: $colors-data.cta-primary.base
+-- ftd.integer: $types-box.desktop.weight
+role: $inherited.types.fine-print
+color: $inherited.colors.text
 
-We use this color as primary main button background color.
+-- end: ftd.row
 
--- colors: \$inherited.colors.cta-primary.hover
-dark: $colors-data.cta-primary.hover.dark
-light: $colors-data.cta-primary.hover.light
-bgcolor: $colors-data.cta-primary.hover
+-- end: ftd.row
 
-We use this color as primary main button hover background color.
+-- end: ftd.column
 
--- colors: \$inherited.colors.cta-primary.disabled
-dark: $colors-data.cta-primary.disabled.dark
-light: $colors-data.cta-primary.disabled.light
-bgcolor: $colors-data.cta-primary.disabled
+-- end: ftd.column
 
-We use this color as primary main button disabled background color.
+-- end: ftd.row
 
--- colors: \$inherited.colors.cta-primary.pressed
-dark: $colors-data.cta-primary.pressed.dark
-light: $colors-data.cta-primary.pressed.light
-bgcolor: $colors-data.cta-primary.pressed
+-- end: ftd.column
 
-We use this color as primary main button pressed background color.
+-- end: types-box
 
--- colors: \$inherited.colors.cta-primary.focused
-dark: $colors-data.cta-primary.focused.dark
-light: $colors-data.cta-primary.focused.light
-bgcolor: $colors-data.cta-primary.focused
 
-We use this color as primary main button focus background color.
 
--- colors: \$inherited.colors.cta-primary.border
-dark: $colors-data.cta-primary.border.dark
-light: $colors-data.cta-primary.border.light
-bgcolor: $colors-data.cta-primary.border
 
-We use this color as primary main button border color.
 
--- colors: \$inherited.colors.cta-primary.border-disabled
-dark: $colors-data.cta-primary.border-disabled.dark
-light: $colors-data.cta-primary.border-disabled.light
-bgcolor: $colors-data.cta-primary.border-disabled
+-- component header:
+caption title: 
 
-We use this color as primary main button disabled border color.
+-- ftd.text: $header.title
+role: $inherited.types.heading-tiny
+color: $inherited.colors.text
+style: bold
 
--- colors: \$inherited.colors.cta-primary.text
-dark: $colors-data.cta-primary.text.dark
-light: $colors-data.cta-primary.text.light
-bgcolor: $colors-data.cta-primary.text
+-- end: header
 
-We use this color as primary main button text color.
 
--- colors: \$inherited.colors.cta-primary.text-disabled
-dark: $colors-data.cta-primary.text-disabled.dark
-light: $colors-data.cta-primary.text-disabled.light
-bgcolor: $colors-data.cta-primary.text-disabled
 
-We use this color as primary main button disabled text color.
 
--- end: cta-primary-colors
+-- component display-type:
+ftd.type-data types:
 
+-- ftd.column:
+width: fill-container
 
+-- header: Headings
 
+-- types-box: \$inherited.types.heading-hero
+title: heading hero
+types-role: $types.heading-hero
+mobile: $types.heading-hero-mobile
+desktop: $types.heading-hero-desktop
 
+-- types-box: \$inherited.types.heading-large
+title: heading large
+types-role: $types.heading-large
+mobile: $types.heading-large-mobile
+desktop: $types.heading-large-desktop
 
--- colors list cta-secondary-colors:
+-- types-box: \$inherited.types.heading-medium
+title: heading medium
+types-role: $types.heading-medium
+mobile: $types.heading-medium-mobile
+desktop: $types.heading-medium-desktop
 
--- colors: \$inherited.colors.cta-secondary.base
-dark: $colors-data.cta-secondary.base.dark
-light: $colors-data.cta-secondary.base.light
-bgcolor: $colors-data.cta-secondary.base
+-- types-box: \$inherited.types.heading-small
+title: heading small
+types-role: $types.heading-small
+mobile: $types.heading-small-mobile
+desktop: $types.heading-small-desktop
 
-We use this color as secondary main button background color.
+-- types-box: \$inherited.types.heading-tiny
+title: heading tiny
+types-role: $types.heading-tiny
+mobile: $types.heading-tiny-mobile
+desktop: $types.heading-tiny-desktop
 
--- colors: \$inherited.colors.cta-secondary.hover
-dark: $colors-data.cta-secondary.hover.dark
-light: $colors-data.cta-secondary.hover.light
-bgcolor: $colors-data.cta-secondary.hover
+-- ftd.column:
+width: fill-container
+margin-top.px: 34
 
-We use this color as secondary main button hover background color.
+-- header: Copy
 
--- colors: \$inherited.colors.cta-secondary.disabled
-dark: $colors-data.cta-secondary.disabled.dark
-light: $colors-data.cta-secondary.disabled.light
-bgcolor: $colors-data.cta-secondary.disabled
+-- types-box: \$inherited.types.copy-large
+title: copy-large
+types-role: $types.copy-large
+mobile: $types.copy-large-mobile
+desktop: $types.copy-large-desktop
 
-We use this color as secondary main button disabled background color.
+-- types-box: \$inherited.types.copy-regular
+title: copy-regular
+types-role: $types.copy-regular
+mobile: $types.copy-regular-mobile
+desktop: $types.copy-regular-desktop
 
--- colors: \$inherited.colors.cta-secondary.pressed
-dark: $colors-data.cta-secondary.pressed.dark
-light: $colors-data.cta-secondary.pressed.light
-bgcolor: $colors-data.cta-secondary.pressed
+-- types-box: \$inherited.types.copy-small
+title: copy-small
+types-role: $types.copy-small
+mobile: $types.copy-small-mobile
+desktop: $types.copy-small-desktop
 
-We use this color as secondary main button pressed background color.
+-- end: ftd.column
 
--- colors: \$inherited.colors.cta-secondary.focused
-dark: $colors-data.cta-secondary.focused.dark
-light: $colors-data.cta-secondary.focused.light
-bgcolor: $colors-data.cta-secondary.focused
+-- ftd.column:
+width: fill-container
+margin-top.px: 34
 
-We use this color as secondary main button focus background color.
+-- header: Button
 
--- colors: \$inherited.colors.cta-secondary.border
-dark: $colors-data.cta-secondary.border.dark
-light: $colors-data.cta-secondary.border.light
-bgcolor: $colors-data.cta-secondary.border
+-- types-box: \$inherited.types.button-large
+title: button-large
+types-role: $types.button-large
+mobile: $types.button-large-mobile
+desktop: $types.button-large-desktop
 
-We use this color as secondary main button border color.
+-- types-box: \$inherited.types.button-medium
+title: button-medium
+types-role: $types.button-medium
+mobile: $types.button-medium-mobile
+desktop: $types.button-medium-desktop
 
--- colors: \$inherited.colors.cta-secondary.border-disabled
-dark: $colors-data.cta-secondary.border-disabled.dark
-light: $colors-data.cta-secondary.border-disabled.light
-bgcolor: $colors-data.cta-secondary.border-disabled
+-- types-box: \$inherited.types.button-small
+title: button-small
+types-role: $types.button-small
+mobile: $types.button-small-mobile
+desktop: $types.button-small-desktop
 
-We use this color as secondary main button disabled border color.
+-- types-box: \$inherited.types.link
+title: link
+types-role: $types.link
+mobile: $types.link-mobile
+desktop: $types.link-desktop
 
--- colors: \$inherited.colors.cta-secondary.text
-dark: $colors-data.cta-secondary.text.dark
-light: $colors-data.cta-secondary.text.light
-bgcolor: $colors-data.cta-secondary.text
+-- end: ftd.column
 
-We use this color as secondary main button text color.
+-- ftd.column:
+width: fill-container
+margin-top.px: 34
 
--- colors: \$inherited.colors.cta-secondary.text-disabled
-dark: $colors-data.cta-secondary.text-disabled.dark
-light: $colors-data.cta-secondary.text-disabled.light
-bgcolor: $colors-data.cta-secondary.text-disabled
+-- header: Label
 
-We use this color as secondary main button disabled text color.
+-- types-box: \$inherited.types.label-large
+title: label-large
+types-role: $types.label-large
+mobile: $types.label-large-mobile
+desktop: $types.label-large-desktop
 
--- end: cta-secondary-colors
+-- types-box: \$inherited.types.label-small
+title: label-small
+types-role: $types.label-small
+mobile: $types.label-small-mobile
+desktop: $types.label-small-desktop
 
+-- end: ftd.column
 
+-- ftd.column:
+width: fill-container
+margin-top.px: 34
 
+-- header: Specialized Text
 
+-- types-box: \$inherited.types.fine-print
+title: fine-print
+types-role: $types.fine-print
+mobile: $types.fine-print-mobile
+desktop: $types.fine-print-desktop
 
--- colors list cta-tertiary-colors:
+-- types-box: \$inherited.types.blockquote
+title: blockquote
+types-role: $types.blockquote
+mobile: $types.blockquote-mobile
+desktop: $types.blockquote-desktop
 
--- colors: \$inherited.colors.cta-tertiary.base
-dark: $colors-data.cta-tertiary.base.dark
-light: $colors-data.cta-tertiary.base.light
-bgcolor: $colors-data.cta-tertiary.base
+-- types-box: \$inherited.types.source-code
+title: source-code
+types-role: $types.source-code
+mobile: $types.source-code-mobile
+desktop: $types.source-code-desktop
 
-We use this color as tertiary main button background color.
+-- end: ftd.column
 
--- colors: \$inherited.colors.cta-tertiary.hover
-dark: $colors-data.cta-tertiary.hover.dark
-light: $colors-data.cta-tertiary.hover.light
-bgcolor: $colors-data.cta-tertiary.hover
+-- end: ftd.column
 
-We use this color as tertiary main button hover background color.
-
--- colors: \$inherited.colors.cta-tertiary.disabled
-dark: $colors-data.cta-tertiary.disabled.dark
-light: $colors-data.cta-tertiary.disabled.light
-bgcolor: $colors-data.cta-tertiary.disabled
-
-We use this color as tertiary main button disabled background color.
-
--- colors: \$inherited.colors.cta-tertiary.pressed
-dark: $colors-data.cta-tertiary.pressed.dark
-light: $colors-data.cta-tertiary.pressed.light
-bgcolor: $colors-data.cta-tertiary.pressed
-
-We use this color as tertiary main button pressed background color.
-
--- colors: \$inherited.colors.cta-tertiary.focused
-dark: $colors-data.cta-tertiary.focused.dark
-light: $colors-data.cta-tertiary.focused.light
-bgcolor: $colors-data.cta-tertiary.focused
-
-We use this color as tertiary main button focus background color.
-
--- colors: \$inherited.colors.cta-tertiary.border
-dark: $colors-data.cta-tertiary.border.dark
-light: $colors-data.cta-tertiary.border.light
-bgcolor: $colors-data.cta-tertiary.border
-
-We use this color as tertiary main button border color.
-
--- colors: \$inherited.colors.cta-tertiary.border-disabled
-dark: $colors-data.cta-tertiary.border-disabled.dark
-light: $colors-data.cta-tertiary.border-disabled.light
-bgcolor: $colors-data.cta-tertiary.border-disabled
-
-We use this color as tertiary main button disabled border color.
-
--- colors: \$inherited.colors.cta-tertiary.text
-dark: $colors-data.cta-tertiary.text.dark
-light: $colors-data.cta-tertiary.text.light
-bgcolor: $colors-data.cta-tertiary.text
-
-We use this color as tertiary main button text color.
-
--- colors: \$inherited.colors.cta-tertiary.text-disabled
-dark: $colors-data.cta-tertiary.text-disabled.dark
-light: $colors-data.cta-tertiary.text-disabled.light
-bgcolor: $colors-data.cta-tertiary.text-disabled
-
-We use this color as tertiary main button disabled text color.
-
--- end: cta-tertiary-colors
-
-
-
-
-
--- colors list cta-danger-colors:
-
--- colors: \$inherited.colors.cta-danger.base
-dark: $colors-data.cta-danger.base.dark
-light: $colors-data.cta-danger.base.light
-bgcolor: $colors-data.cta-danger.base
-
-We use this color as warning main button background color.
-
--- colors: \$inherited.colors.cta-danger.hover
-dark: $colors-data.cta-danger.hover.dark
-light: $colors-data.cta-danger.hover.light
-bgcolor: $colors-data.cta-danger.hover
-
-We use this color as warning main button hover background color.
-
--- colors: \$inherited.colors.cta-danger.disabled
-dark: $colors-data.cta-danger.disabled.dark
-light: $colors-data.cta-danger.disabled.light
-bgcolor: $colors-data.cta-danger.disabled
-
-We use this color as warning main button disabled background color.
-
--- colors: \$inherited.colors.cta-danger.pressed
-dark: $colors-data.cta-danger.pressed.dark
-light: $colors-data.cta-danger.pressed.light
-bgcolor: $colors-data.cta-danger.pressed
-
-We use this color as warning main button pressed background color.
-
--- colors: \$inherited.colors.cta-danger.focused
-dark: $colors-data.cta-danger.focused.dark
-light: $colors-data.cta-danger.focused.light
-bgcolor: $colors-data.cta-danger.focused
-
-We use this color as warning main button focus background color.
-
--- colors: \$inherited.colors.cta-danger.border
-dark: $colors-data.cta-danger.border.dark
-light: $colors-data.cta-danger.border.light
-bgcolor: $colors-data.cta-danger.border
-
-We use this color as warning main button border color.
-
--- colors: \$inherited.colors.cta-danger.border-disabled
-dark: $colors-data.cta-danger.border-disabled.dark
-light: $colors-data.cta-danger.border-disabled.light
-bgcolor: $colors-data.cta-danger.border-disabled
-
-We use this color as danger main button disabled border color.
-
--- colors: \$inherited.colors.cta-danger.text
-dark: $colors-data.cta-danger.text.dark
-light: $colors-data.cta-danger.text.light
-bgcolor: $colors-data.cta-danger.text
-
-We use this color as warning main button text color.
-
--- colors: \$inherited.colors.cta-danger.text-disabled
-dark: $colors-data.cta-danger.text-disabled.dark
-light: $colors-data.cta-danger.text-disabled.light
-bgcolor: $colors-data.cta-danger.text-disabled
-
-We use this color as danger main button disabled text color.
-
--- end: cta-danger-colors
-
-
-
-
-
--- colors list error-colors:
-
--- colors: \$inherited.colors.error.base
-dark: $colors-data.error.base.dark
-light: $colors-data.error.base.light
-bgcolor: $colors-data.error.base
-
-We use this color as base error color.
-
--- colors: \$inherited.colors.error.btb
-dark: $colors-data.error.base.dark
-light: $colors-data.error.base.light
-bgcolor: $colors-data.error.base
-border-dark: $colors-data.error.border.dark
-border-light: $colors-data.error.border.light
-border: $colors-data.error.border
-text-dark: $colors-data.error.text.dark
-text-light: $colors-data.error.text.light
-text: $colors-data.error.text
-
-Error button with border, text and background of the color shown from top to
-bottom in this color box.
-
--- colors: \$inherited.colors.error.text
-dark: $colors-data.error.text.dark
-light: $colors-data.error.text.light
-bgcolor: $colors-data.error.text
-
-We use this color as error text color.
-
--- colors: \$inherited.colors.error.border
-dark: $colors-data.error.border.dark
-light: $colors-data.error.border.light
-bgcolor: $colors-data.error.border
-
-We use this color as error border color.
-
--- end: error-colors
-
-
-
-
-
--- colors list success-colors:
-
--- colors: \$inherited.colors.success.base
-dark: $colors-data.success.base.dark
-light: $colors-data.success.base.light
-bgcolor: $colors-data.success.base
-
-We use this color as base success color.
-
--- colors: \$inherited.colors.success.btb
-dark: $colors-data.success.base.dark
-light: $colors-data.success.base.light
-bgcolor: $colors-data.success.base
-border-dark: $colors-data.success.border.dark
-border-light: $colors-data.success.border.light
-border: $colors-data.success.border
-text-dark: $colors-data.success.text.dark
-text-light: $colors-data.success.text.light
-text: $colors-data.success.text
-
-Success button with border, text and background of the color shown from top to
-bottom in this color box.
-
--- colors: \$inherited.colors.success.text
-dark: $colors-data.success.text.dark
-light: $colors-data.success.text.light
-bgcolor: $colors-data.success.text
-
-We use this color as success text color.
-
--- colors: \$inherited.colors.success.border
-dark: $colors-data.success.border.dark
-light: $colors-data.success.border.light
-bgcolor: $colors-data.success.border
-
-We use this color as success border color.
-
--- end: success-colors
-
-
-
-
-
--- colors list warning-colors:
-
--- colors: \$inherited.colors.warning.base
-dark: $colors-data.warning.base.dark
-light: $colors-data.warning.base.light
-bgcolor: $colors-data.warning.base
-
-We use this color as base warning color.
-
--- colors: \$inherited.colors.warning.btb
-dark: $colors-data.warning.base.dark
-light: $colors-data.warning.base.light
-bgcolor: $colors-data.warning.base
-border-dark: $colors-data.warning.border.dark
-border-light: $colors-data.warning.border.light
-border: $colors-data.warning.border
-text-dark: $colors-data.warning.text.dark
-text-light: $colors-data.warning.text.light
-text: $colors-data.warning.text
-
-Warning button with border, text and background of the color shown from top to
-bottom in this color box.
-
--- colors: \$inherited.colors.warning.text
-dark: $colors-data.warning.text.dark
-light: $colors-data.warning.text.light
-bgcolor: $colors-data.warning.text
-
-We use this color as warning text color.
-
--- colors: \$inherited.colors.warning.border
-dark: $colors-data.warning.border.dark
-light: $colors-data.warning.border.light
-bgcolor: $colors-data.warning.border
-
-We use this color as warning border color.
-
--- end: warning-colors
-
-
-
-
--- colors list info-colors:
-
--- colors: \$inherited.colors.info.base
-dark: $colors-data.info.base.dark
-light: $colors-data.info.base.light
-bgcolor: $colors-data.info.base
-
-We use this color as base info color.
-
--- colors: \$inherited.colors.info.btb
-dark: $colors-data.info.base.dark
-light: $colors-data.info.base.light
-bgcolor: $colors-data.info.base
-border-dark: $colors-data.info.border.dark
-border-light: $colors-data.info.border.light
-border: $colors-data.info.border
-text-dark: $colors-data.info.text.dark
-text-light: $colors-data.info.text.light
-text: $colors-data.info.text
-
-Info button with border, text and background of the color shown from top to
-bottom in this color box.
-
--- colors: \$inherited.colors.info.text
-dark: $colors-data.info.text.dark
-light: $colors-data.info.text.light
-bgcolor: $colors-data.info.text
-
-We use this color as info text color.
-
--- colors: \$inherited.colors.info.border
-dark: $colors-data.info.border.dark
-light: $colors-data.info.border.light
-bgcolor: $colors-data.info.border
-
-We use this color as info border color.
-
--- end: info-colors
-
-
-
-
-
--- colors list accent-colors:
-
--- colors: \$inherited.colors.accent.primary
-dark: $colors-data.accent.primary.dark
-light: $colors-data.accent.primary.light
-bgcolor: $colors-data.accent.primary
-
-We use this color as primary accent color.
-
--- colors: \$inherited.colors.accent.secondary
-dark: $colors-data.accent.secondary.dark
-light: $colors-data.accent.secondary.light
-bgcolor: $colors-data.accent.secondary
-
-We use this color as secondary accent color.
-
--- colors: \$inherited.colors.accent.tertiary
-dark: $colors-data.accent.tertiary.dark
-light: $colors-data.accent.tertiary.light
-bgcolor: $colors-data.accent.tertiary
-
-We use this color as tertiary accent color.
-
--- end: accent-colors
-
-
-
-
-
--- colors list custom-colors:
-
--- colors: \$inherited.colors.custom.one
-dark: $colors-data.custom.one.dark
-light: $colors-data.custom.one.light
-bgcolor: $colors-data.custom.one
-
-We use this color for custom one.
-
--- colors: \$inherited.colors.custom.two
-dark: $colors-data.custom.two.dark
-light: $colors-data.custom.two.light
-bgcolor: $colors-data.custom.two
-
-We use this color for custom two.
-
--- colors: \$inherited.colors.custom.three
-dark: $colors-data.custom.three.dark
-light: $colors-data.custom.three.light
-bgcolor: $colors-data.custom.three
-
-We use this color for custom three.
-
--- colors: \$inherited.colors.custom.four
-dark: $colors-data.custom.four.dark
-light: $colors-data.custom.four.light
-bgcolor: $colors-data.custom.four
-
-We use this color for custom four.
-
--- colors: \$inherited.colors.custom.five
-dark: $colors-data.custom.five.dark
-light: $colors-data.custom.five.light
-bgcolor: $colors-data.custom.five
-
-We use this color for custom five.
-
--- colors: \$inherited.colors.custom.six
-dark: $colors-data.custom.six.dark
-light: $colors-data.custom.six.light
-bgcolor: $colors-data.custom.six
-
-We use this color for custom six.
-
--- colors: \$inherited.colors.custom.seven
-dark: $colors-data.custom.seven.dark
-light: $colors-data.custom.seven.light
-bgcolor: $colors-data.custom.seven
-
-We use this color for custom seven.
-
--- colors: \$inherited.colors.custom.eight
-dark: $colors-data.custom.eight.dark
-light: $colors-data.custom.eight.light
-bgcolor: $colors-data.custom.eight
-
-We use this color for custom eight.
-
--- colors: \$inherited.colors.custom.nine
-dark: $colors-data.custom.nine.dark
-light: $colors-data.custom.nine.light
-bgcolor: $colors-data.custom.nine
-
-We use this color for custom nine.
-
--- colors: \$inherited.colors.custom.ten
-dark: $colors-data.custom.ten.dark
-light: $colors-data.custom.ten.light
-bgcolor: $colors-data.custom.ten
-
-We use this color for custom ten.
-
--- end: custom-colors
+-- end: display-type

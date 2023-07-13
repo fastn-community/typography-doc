@@ -1,8 +1,8 @@
 -- import: fastn
 -- import: fastn/processors as pr
--- import: fastn-community.github.io/color-doc/assets
--- import: fastn-community.github.io/color-doc/colors
--- import: fastn-community.github.io/color-doc/cs-types
+-- import: fastn-community.github.io/typography-doc/assets
+-- import: fastn-community.github.io/typography-doc/colors
+-- import: fastn-community.github.io/typography-doc/cs-types
 -- import: fastn-community.github.io/footer
 
 -- pr.toc-item list empty-toc: 
