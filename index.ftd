@@ -22,9 +22,9 @@ name: default-colors
 
 
 -- package: Typography
-name: `<typography name>`
+name: Arya Typography
 logo: $assets.files.static.fastn-logo.svg
-subtitle: `<add typography name here>` : Typography
+subtitle: Arya Typography
 colors: $colors-data
 types: $typo.types
 
@@ -146,7 +146,7 @@ copyright: Copyright © 2023 - [FifthTry.com](https://www.fifthtry.com/)
 -- end: cp.components-pallete
 
 -- color-scheme: 
-tagline: Adding warmth and energy to your pages with the `<add typography name here>`
+tagline: Adding warmth and energy to your pages with the Arya Typography
 
 -- color-scheme.rightbar:
 
@@ -194,11 +194,15 @@ link: https://fastn.com/figma-to-fastn-cs/
 
 -- color-scheme.body:
 
-<repo_name> refers to the art and technique of arranging typefaces (fonts) in a
+`arya-typography` refers to the art and technique of arranging typefaces (fonts) in a
 visually appealing and effective manner. It involves the design, selection, and
 arrangement of various elements such as typefaces, letterforms, line spacing,
 line length, and other typographic elements to create visually appealing and
 readable text.
+
+**Fonts used in `arya-typography`:**
+
+- [arya-font](https://fastn-community.github.io/arya-font/)
 
 -- cb.code: 
 lang: json
@@ -217,9 +221,9 @@ custom typography. To apply a typography package on top of your package,
 you’ll need to import it into one of the module. 
 
 For example, let’s say you’re using the page component from `doc-site` package
-and want to apply the <repo_name> package on top of it.
+and want to apply the `arya-typography` package on top of it.
 
-To use `<repo_name>` into your [fastn](https://fastn.com/) web project, 
+To use `arya-typography` into your [fastn](https://fastn.com/) web project, 
 add below into `FASTN.ftd` file:
 
 -- cb.code:
