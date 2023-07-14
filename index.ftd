@@ -225,7 +225,7 @@ add below into `FASTN.ftd` file:
 -- cb.code:
 lang: ftd
 
-\-- fastn.dependency: <user_name>.github.io/<repo_name>
+\-- fastn.dependency: fastn-community.github.io/arya-typography
 
 -- markdown: 
 
@@ -292,12 +292,12 @@ margin-vertical.px: 44
 -- cb.code: Import `arya-typography` inside your `ftd` file
 lang: ftd
 
-\-- import: fastn-community.github.io/arya-typography as typo
+\-- import: fastn-community.github.io/arya-typography
 
 
 -- markdown:
 
-Now add `$typo.types` to your component, as shown in below example:
+Now add `$arya-typography.types` to your component, as shown in below example:
 
 -- cb.code: Copy below code snippet inside your `ftd` file, then deploy and test
 lang: ftd
@@ -306,7 +306,7 @@ lang: ftd
 
 \-- component example:
 caption title:
-ftd.type-data types: $typo.types
+ftd.type-data types: $arya-typography.types
 
 \-- ftd.text: $example.title
 role: $inherited.types.heading-hero
