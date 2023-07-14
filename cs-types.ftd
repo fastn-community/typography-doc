@@ -1,11 +1,11 @@
--- import: fastn-community.github.io/inter-font/assets as inter-assets
+-- import: fastn-community.github.io/arya-font/assets as arya-assets
 
 -- ftd.type heading-hero-types:
 line-height.px: 26
 size.px: 20
 letter-spacing.px: 0
 weight: 700
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.responsive-type heading-hero: $heading-hero-types
 
@@ -17,13 +17,13 @@ font-family: $inter-assets.fonts.Inter
 size.px: 36
 line-height.px: 54
 weight: 700
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.type heading-large-desktop:
 size.px: 50
 line-height.px: 65
 weight: 700
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.responsive-type heading-large:
 desktop: $heading-large-desktop
@@ -37,13 +37,13 @@ mobile: $heading-large-mobile
 size.px: 26
 line-height.px: 40
 weight: 700
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.type heading-medium-desktop:
 size.px: 38
 line-height.px: 57
 weight: 700
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.responsive-type heading-medium:
 desktop: $heading-medium-desktop
@@ -57,13 +57,13 @@ mobile: $heading-medium-mobile
 size.px: 22
 line-height.px: 29
 weight: 700
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.type heading-small-desktop:
 line-height.px: 31
 size.px: 24
 weight: 700
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.responsive-type heading-small:
 desktop: $heading-small-desktop
@@ -78,13 +78,13 @@ mobile: $heading-small-mobile
 size.px: 18
 line-height.px: 24
 weight: 700
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.type heading-tiny-desktop:
 size.px: 20
 line-height.px: 26
 weight: 700
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.responsive-type heading-tiny:
 desktop: $heading-tiny-desktop
@@ -98,13 +98,13 @@ mobile: $heading-tiny-mobile
 size.px: 18
 line-height.px: 28
 weight: 400
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.type copy-large-desktop:
 size.px: 22
 line-height.px: 34
 weight: 400
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.responsive-type copy-large:
 desktop: $copy-large-desktop
@@ -119,7 +119,7 @@ line-height.px: 19
 size.px: 11
 letter-spacing.px: 0
 weight: 400
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.responsive-type copy-regular: $copy-regular-type
 
@@ -132,7 +132,7 @@ line-height.px: 7
 size.px: 5
 letter-spacing.px: 0
 weight: 400
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 
 -- ftd.type copy-small-desktop:
@@ -140,7 +140,7 @@ line-height.px: 16
 size.px: 8
 letter-spacing.px: 0
 weight: 400
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.responsive-type copy-small:
 desktop: $copy-small-desktop
@@ -154,13 +154,13 @@ mobile: $copy-small-mobile
 size.px: 12
 line-height.px: 16
 weight: 400
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.type fine-print-desktop:
 size.px: 12
 line-height.px: 16
 weight: 400
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.responsive-type fine-print:
 desktop: $fine-print-desktop
@@ -174,13 +174,13 @@ mobile: $fine-print-mobile
 size.px: 16
 line-height.px: 21
 weight: 400
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.type blockquote-desktop:
 size.px: 16
 line-height.px: 21
 weight: 400
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.responsive-type blockquote:
 desktop: $blockquote-desktop
@@ -194,13 +194,13 @@ mobile: $blockquote-mobile
 size.px: 16
 line-height.px: 21
 weight: 600
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.type source-code-desktop:
 size.px: 18
 line-height.px: 30
 weight: 600
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.responsive-type source-code:
 desktop: $source-code-desktop
@@ -215,7 +215,7 @@ line-height.px: 20
 size.px: 16
 letter-spacing.px: 0
 weight: 400
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.responsive-type label-large: $label-large-type
 
@@ -228,14 +228,14 @@ line-height.px: 6
 size.px: 4
 letter-spacing.px: 0
 weight: 400
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.type label-small-desktop:
 line-height.px: 16
 size.px: 12
 letter-spacing.px: 0
 weight: 400
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.responsive-type label-small:
 desktop: $label-small-desktop
@@ -250,14 +250,14 @@ line-height.px: 24
 size.px: 18
 letter-spacing.px: 0
 weight: 700
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.type button-large-desktop:
 line-height.px: 24
 size.px: 18
 letter-spacing.px: 0
 weight: 700
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.responsive-type button-large:
 desktop: $button-large-desktop
@@ -272,7 +272,7 @@ line-height.px: 24
 size.px: 18
 letter-spacing.px: 0
 weight: 400
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.responsive-type button-medium: $button-medium-type
 
@@ -284,13 +284,13 @@ font-family: $inter-assets.fonts.Inter
 size.px: 14
 line-height.px: 19
 weight: 700
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.type button-small-desktop:
 size.px: 14
 line-height.px: 19
 weight: 700
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.responsive-type button-small:
 desktop: $button-small-desktop
@@ -304,13 +304,13 @@ mobile: $button-small-mobile
 size.px: 14
 line-height.px: 19
 weight: 700
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.type link-desktop:
 size.px: 14
 line-height.px: 19
 weight: 700
-font-family: $inter-assets.fonts.Inter
+font-family: $arya-assets.fonts.Arya
 
 -- ftd.responsive-type link:
 desktop: $link-desktop
