@@ -268,7 +268,7 @@ align-content: center
 link: $button-tick.link
 
 -- ftd.text: $button-tick.title
-role: $inherited.types.copy-small
+role: $inherited.types.button-small
 color: $inherited.colors.cta-primary.text
 style: bold
 
@@ -303,7 +303,7 @@ align-content: center
 link: $button-tick-small.link
 
 -- ftd.text: $button-tick-small.title
-role: $inherited.types.copy-small
+role: $inherited.types.button-small
 color: $inherited.colors.cta-primary.text
 style: bold
 
@@ -661,7 +661,7 @@ width: fill-container
 link: $button-base-dark-small.link
 
 -- ftd.text: $button-base-dark-small.title
-role: $inherited.types.copy-small
+role: $inherited.types.button-small
 color: $inherited.colors.cta-primary.text
 style: bold
 
@@ -694,7 +694,7 @@ width: fill-container
 link: $button-base-light-small.link
 
 -- ftd.text: $button-base-light-small.title
-role: $inherited.types.copy-small
+role: $inherited.types.button-small
 color: $inherited.colors.cta-primary.text
 style: bold
 
@@ -984,7 +984,7 @@ align-content: center
 width: fill-container
 
 -- ftd.text: $warning-button.title
-role: $inherited.types.label-large
+role: $inherited.types.button-large
 color: $inherited.colors.warning.text
 style: medium
 
@@ -1021,9 +1021,8 @@ align-content: center
 src: $assets.files.static.point.svg
 
 -- ftd.text: $primary-button.title
-role: $inherited.types.label-large
+role: $inherited.types.button-small
 color: $inherited.colors.success.text
-style: medium
 
 -- end: ftd.row
 
@@ -1053,9 +1052,8 @@ padding-vertical.px: 8
 width: fill-container
 
 -- ftd.text: $secondary-button.title
-role: $inherited.types.label-large
+role: $inherited.types.button-small
 color: $inherited.colors.info.text
-style: medium
 
 -- end: ftd.column
 

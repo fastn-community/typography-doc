@@ -1,18 +1,20 @@
 -- import: fastn-community.github.io/arya-font/assets as arya-assets
+-- import: fastn-community.github.io/lato-font/assets as lato-assets
+-- import: fastn-community.github.io/lobster-font/assets as lobster-assets
 
 -- ftd.type heading-hero-mobile:
 line-height.px: 60
 size.px: 52
 letter-spacing.px: 0
 weight: 700
-font-family: $arya-assets.fonts.Arya
+font-family: $lobster-assets.fonts.Lobster
 
 -- ftd.type heading-hero-desktop:
 line-height.px: 60
 size.px: 52
 letter-spacing.px: 0
 weight: 700
-font-family: $arya-assets.fonts.Arya
+font-family: $lobster-assets.fonts.Lobster
 
 -- ftd.responsive-type heading-hero:
 desktop: $heading-hero-desktop
@@ -27,14 +29,14 @@ line-height.px: 48
 size.px: 40
 letter-spacing.px: 0
 weight: 700
-font-family: $arya-assets.fonts.Arya
+font-family: $lobster-assets.fonts.Lobster
 
 -- ftd.type heading-large-desktop:
 line-height.px: 48
 size.px: 40
 letter-spacing.px: 0
 weight: 700
-font-family: $arya-assets.fonts.Arya
+font-family: $lobster-assets.fonts.Lobster
 
 -- ftd.responsive-type heading-large:
 desktop: $heading-large-desktop
@@ -49,13 +51,13 @@ line-height.px: 44
 size.px: 32
 letter-spacing.px: 0
 weight: 600
-font-family: $arya-assets.fonts.Arya
+font-family: $lobster-assets.fonts.Lobster
 
 -- ftd.type heading-medium-desktop:
 line-height.px: 44
 size.px: 32
 letter-spacing.px: 0
-font-family: $arya-assets.fonts.Arya
+font-family: $lobster-assets.fonts.Lobster
 weight: 600
 
 -- ftd.responsive-type heading-medium:
@@ -71,14 +73,14 @@ line-height.px: 36
 size.px: 24
 letter-spacing.px: 0
 weight: 500
-font-family: $arya-assets.fonts.Arya
+font-family: $lobster-assets.fonts.Lobster
 
 -- ftd.type heading-small-desktop:
 line-height.px: 36
 size.px: 24
 letter-spacing.px: 0
 weight: 500
-font-family: $arya-assets.fonts.Arya
+font-family: $lobster-assets.fonts.Lobster
 
 -- ftd.responsive-type heading-small:
 desktop: $heading-small-desktop
@@ -94,14 +96,14 @@ line-height.px: 26
 size.px: 18
 letter-spacing.px: 0
 weight: 500
-font-family: $arya-assets.fonts.Arya
+font-family: $lobster-assets.fonts.Lobster
 
 -- ftd.type heading-tiny-desktop:
 line-height.px: 26
 size.px: 18
 letter-spacing.px: 0
 weight: 500
-font-family: $arya-assets.fonts.Arya
+font-family: $lobster-assets.fonts.Lobster
 
 -- ftd.responsive-type heading-tiny:
 desktop: $heading-tiny-desktop
@@ -116,13 +118,13 @@ line-height.px: 28
 size.px: 20
 letter-spacing.px: 0
 weight: 400
-font-family: $arya-assets.fonts.Arya
+font-family: $lato-assets.fonts.Lato
 
 -- ftd.type copy-large-desktop:
 line-height.px: 28
 size.px: 20
 letter-spacing.px: 0
-font-family: $arya-assets.fonts.Arya
+font-family: $lato-assets.fonts.Lato
 weight: 400
 
 -- ftd.responsive-type copy-large:
@@ -138,13 +140,13 @@ line-height.px: 24
 size.px: 16
 letter-spacing.px: 0
 weight: 400
-font-family: $arya-assets.fonts.Arya
+font-family: $lato-assets.fonts.Lato
 
 -- ftd.type copy-regular-desktop:
 line-height.px: 24
 size.px: 16
 letter-spacing.px: 0
-font-family: $arya-assets.fonts.Arya
+font-family: $lato-assets.fonts.Lato
 weight: 400
 
 -- ftd.responsive-type copy-regular:
@@ -160,7 +162,7 @@ line-height.px: 20
 size.px: 16
 letter-spacing.px: 0
 weight: 400
-font-family: $arya-assets.fonts.Arya
+font-family: $lato-assets.fonts.Lato
 
 
 -- ftd.type copy-small-desktop:
@@ -168,7 +170,7 @@ line-height.px: 20
 size.px: 16
 letter-spacing.px: 0
 weight: 400
-font-family: $arya-assets.fonts.Arya
+font-family: $lato-assets.fonts.Lato
 
 -- ftd.responsive-type copy-small:
 desktop: $copy-small-desktop
@@ -183,14 +185,14 @@ line-height.px: 18
 size.px: 14
 letter-spacing.px: 0
 weight: 400
-font-family: $arya-assets.fonts.Arya
+font-family: $lato-assets.fonts.Lato
 
 -- ftd.type fine-print-desktop:
 line-height.px: 18
 size.px: 14
 letter-spacing.px: 0
 weight: 400
-font-family: $arya-assets.fonts.Arya
+font-family: $lato-assets.fonts.Lato
 
 -- ftd.responsive-type fine-print:
 desktop: $fine-print-desktop
@@ -205,14 +207,14 @@ line-height.px: 16
 size.px: 14
 letter-spacing.px: 0
 weight: 400
-font-family: $arya-assets.fonts.Arya
+font-family: $lato-assets.fonts.Lato
 
 -- ftd.type blockquote-desktop:
 line-height.px: 16
 size.px: 14
 letter-spacing.px: 0
 weight: 400
-font-family: $arya-assets.fonts.Arya
+font-family: $lato-assets.fonts.Lato
 
 -- ftd.responsive-type blockquote:
 desktop: $blockquote-desktop
@@ -227,14 +229,14 @@ line-height.px: 16
 size.px: 14
 letter-spacing.px: 0
 weight: 400
-font-family: $arya-assets.fonts.Arya
+font-family: $lato-assets.fonts.Lato
 
 -- ftd.type source-code-desktop:
 line-height.px: 16
 size.px: 14
 letter-spacing.px: 0
 weight: 400
-font-family: $arya-assets.fonts.Arya
+font-family: $lato-assets.fonts.Lato
 
 -- ftd.responsive-type source-code:
 desktop: $source-code-desktop
@@ -249,14 +251,14 @@ line-height.px: 22
 size.px: 16
 letter-spacing.px: 0
 weight: 400
-font-family: $arya-assets.fonts.Arya
+font-family: $lato-assets.fonts.Lato
 
 -- ftd.type label-large-desktop:
 line-height.px: 22
 size.px: 16
 letter-spacing.px: 0
 weight: 400
-font-family: $arya-assets.fonts.Arya
+font-family: $lato-assets.fonts.Lato
 
 -- ftd.responsive-type label-large:
 desktop: $label-large-desktop
@@ -271,14 +273,14 @@ line-height.px: 16
 size.px: 14
 letter-spacing.px: 0
 weight: 400
-font-family: $arya-assets.fonts.Arya
+font-family: $lato-assets.fonts.Lato
 
 -- ftd.type label-small-desktop:
 line-height.px: 16
 size.px: 14
 letter-spacing.px: 0
 weight: 400
-font-family: $arya-assets.fonts.Arya
+font-family: $lato-assets.fonts.Lato
 
 -- ftd.responsive-type label-small:
 desktop: $label-small-desktop
@@ -359,14 +361,14 @@ line-height.px: 19
 size.px: 14
 letter-spacing.px: 0
 weight: 400
-font-family: $arya-assets.fonts.Arya
+font-family: $lato-assets.fonts.Lato
 
 -- ftd.type link-desktop:
 line-height.px: 19
 size.px: 14
 letter-spacing.px: 0
 weight: 700
-font-family: $arya-assets.fonts.Arya
+font-family: $lato-assets.fonts.Lato
 
 -- ftd.responsive-type link:
 desktop: $link-desktop
