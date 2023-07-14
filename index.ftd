@@ -27,6 +27,9 @@ logo: $assets.files.static.fastn-logo.svg
 subtitle: Arya Typography
 colors: $colors-data
 types: $typo.types
+document-title: Arya Typography a fastn typography package
+document-description: Arya Typography a fastn typography package
+document-image: https://fastn-community.github.io/typography-doc/-/fastn-community.github.io/typography-doc/static/arya-og-image.png
 
 -- cp.components-pallete:
 
@@ -563,6 +566,19 @@ optional string subtitle:
 ftd.color-scheme colors: $ftd.default-colors
 ftd.type-data types: $typo.types
 boolean $mouse-in: false
+optional string document-title:
+optional string document-description:
+optional ftd.raw-image-src document-image: 
+
+-- ftd.document:
+title if { package.document-title != NULL }: $package.document-title
+title: $package.title
+og-title if { package.document-title != NULL }: $package.document-title
+og-title: $package.title
+twitter-title if { package.document-title != NULL }: $package.document-title
+twitter-title: $package.title
+description: $package.document-description
+og-image: $package.document-image
 
 -- ftd.column:
 width: fill-container
@@ -685,6 +701,8 @@ powered-by-text: Powered by
 powered-by-link: https://fastn.io/
 
 -- end: ftd.column
+
+-- end: ftd.document
 
 -- end: package
 
