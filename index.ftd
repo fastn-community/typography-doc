@@ -838,8 +838,6 @@ string $copy-text: null
 -- ftd.column:
 width: fill-container
 padding-vertical.px: 16
-border-bottom-width.px: 1
-border-color: $inherited.colors.border-strong
 
 -- ftd.row:
 width: fill-container
@@ -851,6 +849,10 @@ width.fixed.percent: 20
 
 -- ftd.column:
 width: fill-container
+border-bottom-width.px: 1
+border-color: $inherited.colors.border-strong
+border-style: dashed
+padding-bottom.px: 24
 
 -- ftd.row:
 align-content: center
@@ -910,15 +912,14 @@ opacity: 0.6
 
 -- ftd.text: Mobile:
 role: $inherited.types.fine-print
-color: $inherited.colors.text
-style: bold
+color: $inherited.colors.text-strong
 
 -- ftd.row:
 spacing.fixed.px: 8
 
 -- ftd.text: font-family:
 role: $inherited.types.fine-print
-color: $inherited.colors.custom.nine
+color: $inherited.colors.text
 
 -- ftd.text: $types-box.mobile.font-family
 role: $inherited.types.fine-print
@@ -935,7 +936,7 @@ spacing.fixed.px: 8
 
 -- ftd.text: font-size:
 role: $inherited.types.fine-print
-color: $inherited.colors.custom.nine
+color: $inherited.colors.text
 
 -- ftd.integer: $types-box.mobile.weight
 role: $inherited.types.fine-print
@@ -952,7 +953,7 @@ spacing.fixed.px: 8
 
 -- ftd.text: font-weight:
 role: $inherited.types.fine-print
-color: $inherited.colors.custom.nine
+color: $inherited.colors.text
 
 -- ftd.integer: $types-box.mobile.weight
 role: $inherited.types.fine-print
@@ -969,7 +970,7 @@ spacing.fixed.px: 8
 
 -- ftd.text: line-height:
 role: $inherited.types.fine-print
-color: $inherited.colors.custom.nine
+color: $inherited.colors.text
 
 -- ftd.integer: $types-box.mobile.weight
 role: $inherited.types.fine-print
@@ -986,7 +987,7 @@ spacing.fixed.px: 8
 
 -- ftd.text: letter-spacing:
 role: $inherited.types.fine-print
-color: $inherited.colors.custom.nine
+color: $inherited.colors.text
 
 -- ftd.integer: $types-box.mobile.weight
 role: $inherited.types.fine-print
@@ -1005,8 +1006,7 @@ opacity: 0.6
 
 -- ftd.text: Desktop:
 role: $inherited.types.fine-print
-color: $inherited.colors.text
-style: bold
+color: $inherited.colors.text-strong
 
 -- ftd.row:
 spacing.fixed.px: 8
@@ -1014,7 +1014,7 @@ align-content: center
 
 -- ftd.text: font-family:
 role: $inherited.types.fine-print
-color: $inherited.colors.custom.nine
+color: $inherited.colors.text
 
 -- ftd.text: $types-box.desktop.font-family
 role: $inherited.types.fine-print
@@ -1032,7 +1032,7 @@ align-content: center
 
 -- ftd.text: font-size:
 role: $inherited.types.fine-print
-color: $inherited.colors.custom.nine
+color: $inherited.colors.text
 
 -- ftd.integer: $types-box.mobile.weight
 role: $inherited.types.fine-print
@@ -1050,7 +1050,7 @@ align-content: center
 
 -- ftd.text: font-weight:
 role: $inherited.types.fine-print
-color: $inherited.colors.custom.nine
+color: $inherited.colors.text
 
 -- ftd.integer: $types-box.desktop.weight
 role: $inherited.types.fine-print
@@ -1068,7 +1068,7 @@ align-content: center
 
 -- ftd.text: line-height:
 role: $inherited.types.fine-print
-color: $inherited.colors.custom.nine
+color: $inherited.colors.text
 
 -- ftd.integer: $types-box.desktop.weight
 role: $inherited.types.fine-print
@@ -1086,7 +1086,7 @@ align-content: center
 
 -- ftd.text: letter-spacing:
 role: $inherited.types.fine-print
-color: $inherited.colors.custom.nine
+color: $inherited.colors.text
 
 -- ftd.integer: $types-box.desktop.weight
 role: $inherited.types.fine-print
@@ -1269,37 +1269,75 @@ children wrapper:
 optional string id:
 ftd.type-data types: $opensans-typography.types
 boolean $is-open: false
+boolean $mouse-in: false
 
 -- ftd.column:
 width: fill-container
 id: $types-header.id
 
--- ftd.row:
+-- ftd.column:
 width: fill-container
 border-bottom-width.px: 1
 border-color: $inherited.colors.border-strong
-margin-bottom.px: 24
-spacing.fixed.px: 24
-$on-click$: $ftd.toggle($a = $types-header.is-open)
 padding-bottom.px: 6
+margin-bottom.px: 24
+
+-- ftd.row:
+spacing.fixed.px: 24
+align-content: center
 
 -- ftd.image:
 if: { !types-header.is-open }
 src: $assets.files.static.down-arrow.svg
 align-self: center
+$on-click$: $ftd.toggle($a = $types-header.is-open)
 
 -- ftd.image:
 if: { types-header.is-open }
 src: $assets.files.static.right-arrow.svg
 align-self: center
+$on-click$: $ftd.toggle($a = $types-header.is-open)
 
 -- ftd.text: $types-header.title
 role: $inherited.types.heading-small
 color: $inherited.colors.text-strong
 region: h2
 align-self: center
+$on-click$: $ftd.toggle($a = $types-header.is-open)
+
+-- ftd.row:
+align-content: center
+spacing.fixed.px: 4
+
+-- ftd.image:
+if: { ftd.dark-mode && !ftd.follow-system-dark-mode }
+src: $assets.files.static.light-icon.svg
+width.fixed.px: 28
+height.fixed.px: 28
+background.solid if { types-header.mouse-in }: #CCC
+border-radius.px: 100
+padding.px: 2
+$on-click$: $ftd.enable-light-mode()
+$on-mouse-enter$: $ftd.set-bool($a = $types-header.mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $types-header.mouse-in, v = false)
+
+-- ftd.image:
+if: { !ftd.dark-mode && !ftd.follow-system-dark-mode }
+src: $assets.files.static.dark-icon.svg
+width.fixed.px: 28
+height.fixed.px: 28
+background.solid if { types-header.mouse-in }: #CCC
+border-radius.px: 100
+padding.px: 2
+$on-mouse-enter$: $ftd.set-bool($a = $types-header.mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $types-header.mouse-in, v = false)
+$on-click$: $ftd.enable-dark-mode()
 
 -- end: ftd.row
+
+-- end: ftd.row
+
+-- end: ftd.column
 
 -- ftd.column:
 if: { types-header.is-open }
