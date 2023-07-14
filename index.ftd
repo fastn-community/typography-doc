@@ -5,7 +5,8 @@
 -- import: fastn-community.github.io/typography-doc/components as cp
 -- import: fastn-community.github.io/footer
 -- import: fastn-community.github.io/inter-typography as typo
--- import: fastn-community.github.io/typography-doc/types
+-- import: fastn-community.github.io/opensans-typography
+-- import: fastn-community.github.io/typography-doc/typography as types
 
 -- string figma-json:
 $processor$: pr.figma-cs-token
@@ -23,7 +24,7 @@ name: default-colors
 -- package: Typography
 name: `<typography name>`
 logo: $assets.files.static.fastn-logo.svg
-subtitle: `<add typography name here>` : Color Scheme
+subtitle: `<add typography name here>` : Typography
 colors: $colors-data
 types: $typo.types
 
@@ -174,17 +175,17 @@ icon: $assets.files.static.discord-icon.svg
 link-text: discord.gg/bucrdvptYd
 link: https://discord.gg/bucrdvptYd
 
--- title-with-link: How to use this colour palette
+-- title-with-link: How to use this typography
 icon: $assets.files.static.link-icon.svg
 link-text: How to use?
 link: #how-to-use-cs
 
--- title-with-link: How to modify a colour palette
+/-- title-with-link: How to modify a typography
 icon: $assets.files.static.link-icon.svg
 link-text: fastn.com/modify-cs
-link: https://fastn.com/modify-cs/
+link: #how-to-use-cs
 
--- title-with-link: How to create a colour palette
+/-- title-with-link: How to create a typography
 icon: $assets.files.static.link-icon.svg
 link-text: fastn.com/figma-to-fastn-cs
 link: https://fastn.com/figma-to-fastn-cs/
@@ -199,9 +200,9 @@ arrangement of various elements such as typefaces, letterforms, line spacing,
 line length, and other typographic elements to create visually appealing and
 readable text.
 
--- cb.code: Figma tokens json
+-- cb.code: 
 lang: json
-max-height.fixed.px: 300
+max-height.fixed.px: 220
 download: colors.json
 
 $figma-json
@@ -226,43 +227,72 @@ lang: ftd
 
 \-- fastn.dependency: <user_name>.github.io/<repo_name>
 
--- markdown:
+-- markdown: 
 
 **Option 1:** for documentation templates like [doc-site](https://fastn-community.github.io/doc-site/types/) 
 
-Follow below steps:
+To add typography to your fastn web sites. Edit your `FASTN.ftd` file and add
+`arya-typography` dependency into it.
+
+-- cb.code:
+lang: ftd
+
+\-- fastn.dependency: fastn-community.github.io/arya-typography
 
 -- markdown:
 
-Modify `FASTN/ds.ftd` module which is already added inside your 
-[doc-site](https://fastn-community.github.io/doc-site/types/) 
+Now modify `FASTN/ds.ftd` module which is already added inside your `fastn`
 package.
 
-Replace below line of `FASTN/ds.ftd` file:
+Import `arya-typography` dependency into `FASTN/ds.ftd`
 
 -- cb.code:
 lang: ftd
 
-\-- import: fastn-community.github.io/roboto-typography as typo
+\-- import: fastn-community.github.io/arya-typography
 
 -- markdown:
 
-with:
+Change `-- component page` `typography` property `ftd.type-data typography:
+$roboto-typography.types` with `ftd.type-data typography: $arya-typography.types`
+
+replace this line of `FASTN/ds.ftd` file:
+
+-- cb.code: 
+lang: ftd
+
+\-- ftd.type-data typography: $roboto-typography.types
+
+-- markdown:
+
+ with:
 
 -- cb.code:
 lang: ftd
 
-\-- import: <user_name>.github.io/<repo_name> as typo
+\-- ftd.type-data typography: $arya-typography.types
 
+-- markdown: 
+
+Done! now deploy your fastn package, you’ll see `arya-typography` applied to
+your pages.
+
+-- ftd.column:
+width: fill-container
+border-top-width.px: 1
+border-color: $inherited.colors.border
+margin-vertical.px: 44
+
+-- end: ftd.column
 
 -- markdown: 
 
 **Option 2:** for custom [fastn](https://fastn.com/) projects
 
--- cb.code: Import `<repo_name>` inside your `ftd` file
+-- cb.code: Import `arya-typography` inside your `ftd` file
 lang: ftd
 
-\-- import: <user_name>.github.io/<repo_name> as typo
+\-- import: fastn-community.github.io/arya-typography as typo
 
 
 -- markdown:
@@ -272,7 +302,7 @@ Now add `$typo.types` to your component, as shown in below example:
 -- cb.code: Copy below code snippet inside your `ftd` file, then deploy and test
 lang: ftd
 
-\-- example: This is example of types used from `<repo_name>`
+\-- example: This is example of types used from `arya-typography`
 
 \-- component example:
 caption title:
@@ -284,11 +314,17 @@ color: $inherited.colors.text
 
 \-- end: example
 
+-- markdown: 
+
+Done! now deploy your fastn package, you’ll see `arya-typography` applied to
+your pages.
+
 -- end: how-to-use-cs
 
 
 -- display-type:
-types: $typo.types
+types: $types.types
+
 
 
 
@@ -657,818 +693,6 @@ powered-by-link: https://fastn.io/
 
 
 
--- component color-pallete: 
-caption title:
-colors list pallete:
-boolean $dark-mode: true
-boolean $is-active: false
-boolean $mouse-in: false
-
--- ftd.column:
-width: fill-container
-margin-top.px: 60
-
--- ftd.row:
-width: fill-container
-border-bottom-width.px: 1
-border-color: $inherited.colors.text
-
--- ftd.row:
-spacing.fixed.px: 24
-align-content: center
-
--- ftd.text: $color-pallete.title
-role: $inherited.types.heading-tiny
-color: $inherited.colors.text
-style: bold
-
--- ftd.row:
-
--- ftd.row:
-padding.px: 12
-spacing.fixed.px: 4
-align-content: center
-
--- ftd.image:
-if: { !color-pallete.dark-mode }
-src: $assets.files.static.dark-icon.svg
-width.fixed.px: 28
-height.fixed.px: 28
-$on-click$: $ftd.toggle($a = $color-pallete.dark-mode)
-$on-click$: $ftd.set-bool($a = $color-pallete.is-active, v = true)
-background.solid if { color-pallete.mouse-in }: #CCC
-border-radius.px: 100
-padding.px: 2
-$on-mouse-enter$: $ftd.set-bool($a = $color-pallete.mouse-in, v = true)
-$on-mouse-leave$: $ftd.set-bool($a = $color-pallete.mouse-in, v = false)
-
--- ftd.image:
-if: { color-pallete.dark-mode}
-src: $assets.files.static.light-icon.svg
-width.fixed.px: 28
-height.fixed.px: 28
-$on-click$: $ftd.toggle($a = $color-pallete.dark-mode)
-$on-click$: $ftd.set-bool($a = $color-pallete.is-active, v = true)
-background.solid if { color-pallete.mouse-in }: #CCC
-border-radius.px: 100
-padding.px: 2
-$on-mouse-enter$: $ftd.set-bool($a = $color-pallete.mouse-in, v = true)
-$on-mouse-leave$: $ftd.set-bool($a = $color-pallete.mouse-in, v = false)
-
-/-- ftd.text: Dark / Light mode
-role: $inherited.types.fine-print
-color: $inherited.colors.text
-
--- end: ftd.row
-
--- end: ftd.row
-
--- end: ftd.row
-
--- end: ftd.row
-
--- ftd.row:
-width: fill-container
-spacing.fixed.px: 40
-wrap: true
-
--- color-block-dark: $obj.title
-if: { color-pallete.dark-mode && color-pallete.is-active}
-$loop$: $color-pallete.pallete as $obj
-dark: $obj.dark
-bgcolor: $obj.bgcolor.dark
-body: $obj.body
-border-dark: $obj.border-dark
-border-light: $obj.border-light
-border: $obj.border
-text-dark: $obj.text-dark
-text-light: $obj.text-light
-text: $obj.text
-
--- color-block-light: $obj.title
-if: { !color-pallete.dark-mode && color-pallete.is-active}
-$loop$: $color-pallete.pallete as $obj
-light: $obj.light
-bgcolor: $obj.bgcolor.light
-body: $obj.body
-border-dark: $obj.border-dark
-border-light: $obj.border-light
-border: $obj.border
-text-dark: $obj.text-dark
-text-light: $obj.text-light
-text: $obj.text
-
--- end: ftd.row
-
--- end: ftd.column
-
--- end: color-pallete
-
-
-
-
-
-
-
-
-
-
--- component color-block:
-caption title:
-string dark:
-string light:
-ftd.color bgcolor:
-optional body body:
-optional string border-dark: 
-optional string border-light: 
-optional ftd.color border: 
-optional string text-dark: 
-optional string text-light: 
-optional ftd.color text: 
-boolean copy: true
-string color-property: $ftd.clean-code(a = $color-block.title, lang = ftd)
-string $copy-text: null
-boolean $copy-mouse-in: false
-boolean $mouse-in: true
-
--- ftd.row:
-min-width.fixed.px if { ftd.device == "desktop" }: 400
-max-width.fixed.px if { ftd.device == "desktop" }: 400
-width: fill-container
-margin-top.px: 40
-
--- ftd.column:
-anchor: parent
-right.px: 8
-top.px: 8
-z-index: 999
-$on-mouse-leave$: $ftd.set-string($a = $color-block.copy-text, v = null)
-
--- ftd.image:
-if: { color-block.copy-text == "null" && color-block.mouse-in }
-src: $assets.files.static.copy.svg
-src if { color-block.copy-mouse-in }: $assets.files.static.copy-hover.svg
-$on-mouse-enter$: $ftd.set-bool($a = $color-block.copy-mouse-in, v = true)
-$on-mouse-leave$: $ftd.set-bool($a = $color-block.copy-mouse-in, v = false)
-$on-click$: $ftd.copy-to-clipboard(a = $color-block.color-property)
-$on-click$: $ftd.set-string($a = $color-block.copy-text, v = Copied!)
-width.fixed.px: 12
-
--- ftd.row:
-align-content: center
-spacing: space-between
-
--- ftd.image:
-if: { color-block.copy-text != "null" }
-src: $assets.files.static.tick-icon.svg
-width.fixed.px: 12
-
--- ftd.text: $color-block.copy-text
-if: { color-block.copy-text != "null" }
-role: $inherited.types.fine-print
-color: $inherited.colors.text
-
--- end: ftd.row
-
--- end: ftd.column
-
--- ftd.column:
-width: fill-container
-padding-horizontal.px: 12
-padding-vertical.px: 15
-border-width.px: 1
-border-color: #EEEEEE
-border-radius.px: 6
-
--- ftd.row:
-spacing.fixed.px: 15
-
--- ftd.column:
-width.fixed.px if { ftd.device == "desktop" }: 145
-height.fixed.px if { ftd.device == "desktop" }: 100
-width.fixed.px: 100
-height.fixed.px: 80
-
--- ftd.column: 
-if: { color-block.border == NULL }
-width: fill-container
-height: fill-container
-border-radius.px: 6
-margin-top.px: -44
-background.solid: $color-block.bgcolor
-border-width.px: 1
-border-color: #A0A0A0
-
--- ftd.column:
-width: fill-container
-anchor: parent
-bottom.px: 0
-border-bottom-left-radius.px: 6
-border-bottom-right-radius.px: 6
-padding-horizontal.px: 10
-background.solid: rgba(0,0,0,.1)
-padding-vertical.px: 8
-
--- ftd.text: $color-block.dark
-if: { ftd.dark-mode }
-role: $inherited.types.fine-print
-color: #FFFFFF
-text-transform: uppercase
-style: bold
-
--- ftd.text: $color-block.light
-if: { !ftd.dark-mode }
-role: $inherited.types.fine-print
-color: #FFFFFF
-text-transform: uppercase
-style: bold
-
--- end: ftd.column
-
--- end: ftd.column
-
--- ftd.column:
-if: { color-block.border != NULL }
-width: fill-container
-height: fill-container
-border-radius.px: 6
-margin-top.px: -44
-border-width.px: 1
-border-color: #A0A0A0
-background.solid: $color-block.bgcolor
-
--- ftd.column:
-width: fill-container
-height.fixed.px: 33
-background.solid: $color-block.border
-
--- ftd.column:
-width: fill-container
-anchor: parent
-bottom.px: 0
-border-bottom-left-radius.px: 6
-border-bottom-right-radius.px: 6
-padding-horizontal.px: 10
-background.solid: rgba(0,0,0,.1)
-padding-vertical.px: 8
-
--- ftd.text: $color-block.border-dark
-if: { ftd.dark-mode }
-role: $inherited.types.fine-print
-color: #FFFFFF
-text-transform: uppercase
-style: bold
-
--- ftd.text: $color-block.border-light
-if: { !ftd.dark-mode }
-role: $inherited.types.fine-print
-color: #FFFFFF
-text-transform: uppercase
-style: bold
-
--- end: ftd.column
-
--- end: ftd.column
-
--- ftd.column:
-width: fill-container
-height.fixed.px: 33
-background.solid: $color-block.text
-
--- ftd.column:
-width: fill-container
-anchor: parent
-bottom.px: 0
-border-bottom-left-radius.px: 6
-border-bottom-right-radius.px: 6
-padding-horizontal.px: 10
-background.solid: rgba(0,0,0,.1)
-padding-vertical.px: 8
-
--- ftd.text: $color-block.text-dark
-if: { ftd.dark-mode }
-role: $inherited.types.fine-print
-color: #FFFFFF
-text-transform: uppercase
-style: bold
-
--- ftd.text: $color-block.text-light
-if: { !ftd.dark-mode }
-role: $inherited.types.fine-print
-color: #FFFFFF
-text-transform: uppercase
-style: bold
-
--- end: ftd.column
-
--- end: ftd.column
-
--- ftd.column:
-width: fill-container
-anchor: parent
-bottom.px: 0
-border-bottom-left-radius.px: 6
-border-bottom-right-radius.px: 6
-padding-horizontal.px: 10
-background.solid: rgba(0,0,0,.1)
-padding-vertical.px: 8
-
--- ftd.text: $color-block.dark
-if: { ftd.dark-mode }
-role: $inherited.types.fine-print
-color: #FFFFFF
-text-transform: uppercase
-style: bold
-
--- ftd.text: $color-block.light
-if: { !ftd.dark-mode }
-role: $inherited.types.fine-print
-color: #FFFFFF
-text-transform: uppercase
-style: bold
-
--- end: ftd.column
-
--- end: ftd.column
-
--- end: ftd.column
-
--- ftd.column:
-width: fill-container
-spacing.fixed.px: 5
-
--- ftd.text: $color-block.title
-role: $inherited.types.copy-small
-color: $inherited.colors.text
-
--- ftd.text:
-role: $inherited.types.copy-small
-color: #707070
-width.fixed.percent if { ftd.device == "mobile" }: 80
-
-$color-block.body
-
--- end: ftd.column
-
--- end: ftd.row
-
--- end: ftd.column
-
--- end: ftd.row
-
--- end: color-block
-
-
-
-
-
-
-
-
-
-
--- component color-block-dark:
-caption title:
-string dark:
-ftd.color bgcolor:
-optional body body:
-optional string border-dark: 
-optional string border-light: 
-optional ftd.color border: 
-optional string text-dark: 
-optional string text-light: 
-optional ftd.color text: 
-boolean copy: true
-string color-property: $ftd.clean-code(a = $color-block-dark.title, lang = ftd)
-string $copy-text: null
-boolean $copy-mouse-in: false
-boolean $mouse-in: true
-
--- ftd.row:
-min-width.fixed.px if { ftd.device == "desktop" }: 400
-max-width.fixed.px if { ftd.device == "desktop" }: 400
-width: fill-container
-margin-top.px: 40
-
--- ftd.column:
-anchor: parent
-right.px: 8
-top.px: 8
-z-index: 999
-$on-mouse-leave$: $ftd.set-string($a = $color-block-dark.copy-text, v = null)
-
--- ftd.image:
-if: { color-block-dark.copy-text == "null" && color-block-dark.mouse-in }
-src: $assets.files.static.copy.svg
-src if { color-block-dark.copy-mouse-in }: $assets.files.static.copy-hover.svg
-$on-mouse-enter$: $ftd.set-bool($a = $color-block-dark.copy-mouse-in, v = true)
-$on-mouse-leave$: $ftd.set-bool($a = $color-block-dark.copy-mouse-in, v = false)
-$on-click$: $ftd.copy-to-clipboard(a = $color-block-dark.color-property)
-$on-click$: $ftd.set-string($a = $color-block-dark.copy-text, v = Copied!)
-width.fixed.px: 12
-
--- ftd.row:
-align-content: center
-spacing: space-between
-
--- ftd.image:
-if: { color-block-dark.copy-text != "null" }
-src: $assets.files.static.tick-icon.svg
-width.fixed.px: 12
-
--- ftd.text: $color-block-dark.copy-text
-if: { color-block-dark.copy-text != "null" }
-role: $inherited.types.fine-print
-color: $inherited.colors.text
-
--- end: ftd.row
-
--- end: ftd.column
-
--- ftd.column:
-width: fill-container
-padding-horizontal.px: 12
-padding-vertical.px: 15
-border-width.px: 1
-border-color: #EEEEEE
-border-radius.px: 6
-
--- ftd.row:
-spacing.fixed.px: 15
-
--- ftd.column:
-width.fixed.px if { ftd.device == "desktop" }: 145
-height.fixed.px if { ftd.device == "desktop" }: 100
-width.fixed.px: 100
-height.fixed.px: 80
-
--- ftd.column: 
-if: { color-block-dark.border == NULL }
-width: fill-container
-height: fill-container
-border-radius.px: 6
-margin-top.px: -44
-background.solid: $color-block-dark.bgcolor
-border-width.px: 1
-border-color: #A0A0A0
-
--- ftd.column:
-width: fill-container
-anchor: parent
-bottom.px: 0
-border-bottom-left-radius.px: 6
-border-bottom-right-radius.px: 6
-padding-horizontal.px: 10
-background.solid: rgba(0,0,0,.1)
-padding-vertical.px: 8
-
--- ftd.text: $color-block-dark.dark
-role: $inherited.types.fine-print
-color: #FFFFFF
-text-transform: uppercase
-style: bold
-
--- end: ftd.column
-
--- end: ftd.column
-
--- ftd.column:
-if: { color-block-dark.border != NULL }
-width: fill-container
-height: fill-container
-border-radius.px: 6
-margin-top.px: -44
-border-width.px: 1
-border-color: #A0A0A0
-background.solid: $color-block-dark.bgcolor
-
--- ftd.column:
-width: fill-container
-height.fixed.px: 33
-background.solid: $color-block-dark.border
-
--- ftd.column:
-width: fill-container
-anchor: parent
-bottom.px: 0
-border-bottom-left-radius.px: 6
-border-bottom-right-radius.px: 6
-padding-horizontal.px: 10
-background.solid: rgba(0,0,0,.1)
-padding-vertical.px: 8
-
--- ftd.text: $color-block-dark.border-dark
-role: $inherited.types.fine-print
-color: #FFFFFF
-text-transform: uppercase
-style: bold
-
--- end: ftd.column
-
--- end: ftd.column
-
--- ftd.column:
-width: fill-container
-height.fixed.px: 33
-background.solid: $color-block-dark.text
-
--- ftd.column:
-width: fill-container
-anchor: parent
-bottom.px: 0
-border-bottom-left-radius.px: 6
-border-bottom-right-radius.px: 6
-padding-horizontal.px: 10
-background.solid: rgba(0,0,0,.1)
-padding-vertical.px: 8
-
--- ftd.text: $color-block-dark.text-dark
-role: $inherited.types.fine-print
-color: #FFFFFF
-text-transform: uppercase
-style: bold
-
--- end: ftd.column
-
--- end: ftd.column
-
--- ftd.column:
-width: fill-container
-anchor: parent
-bottom.px: 0
-border-bottom-left-radius.px: 6
-border-bottom-right-radius.px: 6
-padding-horizontal.px: 10
-background.solid: rgba(0,0,0,.1)
-padding-vertical.px: 8
-
--- ftd.text: $color-block-dark.dark
-role: $inherited.types.fine-print
-color: #FFFFFF
-text-transform: uppercase
-style: bold
-
--- end: ftd.column
-
--- end: ftd.column
-
--- end: ftd.column
-
--- ftd.column:
-width: fill-container
-spacing.fixed.px: 5
-
--- ftd.text: $color-block-dark.title
-role: $inherited.types.copy-small
-color: $inherited.colors.text
-
--- ftd.text:
-role: $inherited.types.copy-small
-color: #707070
-width.fixed.percent if { ftd.device == "mobile" }: 80
-
-$color-block-dark.body
-
--- end: ftd.column
-
--- end: ftd.row
-
--- end: ftd.column
-
--- end: ftd.row
-
--- end: color-block-dark
-
-
-
-
-
-
-
-
-
-
--- component color-block-light:
-caption title:
-string light:
-ftd.color bgcolor:
-optional body body:
-optional string border-dark: 
-optional string border-light: 
-optional ftd.color border: 
-optional string text-dark: 
-optional string text-light: 
-optional ftd.color text: 
-boolean copy: true
-string color-property: $ftd.clean-code(a = $color-block-light.title, lang = ftd)
-string $copy-text: null
-boolean $copy-mouse-in: false
-boolean $mouse-in: true
-
--- ftd.row:
-min-width.fixed.px if { ftd.device == "desktop" }: 400
-max-width.fixed.px if { ftd.device == "desktop" }: 400
-width: fill-container
-margin-top.px: 40
-
--- ftd.column:
-anchor: parent
-right.px: 8
-top.px: 8
-z-index: 999
-$on-mouse-leave$: $ftd.set-string($a = $color-block-light.copy-text, v = null)
-
--- ftd.image:
-if: { color-block-light.copy-text == "null" && color-block-light.mouse-in }
-src: $assets.files.static.copy.svg
-src if { color-block-light.copy-mouse-in }: $assets.files.static.copy-hover.svg
-$on-mouse-enter$: $ftd.set-bool($a = $color-block-light.copy-mouse-in, v = true)
-$on-mouse-leave$: $ftd.set-bool($a = $color-block-light.copy-mouse-in, v = false)
-$on-click$: $ftd.copy-to-clipboard(a = $color-block-light.color-property)
-$on-click$: $ftd.set-string($a = $color-block-light.copy-text, v = Copied!)
-width.fixed.px: 12
-
--- ftd.row:
-align-content: center
-spacing: space-between
-
--- ftd.image:
-if: { color-block-light.copy-text != "null" }
-src: $assets.files.static.tick-icon.svg
-width.fixed.px: 12
-
--- ftd.text: $color-block-light.copy-text
-if: { color-block-light.copy-text != "null" }
-role: $inherited.types.fine-print
-color: $inherited.colors.text
-
--- end: ftd.row
-
--- end: ftd.column
-
--- ftd.column:
-width: fill-container
-padding-horizontal.px: 12
-padding-vertical.px: 15
-border-width.px: 1
-border-color: #EEEEEE
-border-radius.px: 6
-
--- ftd.row:
-spacing.fixed.px: 15
-
--- ftd.column:
-width.fixed.px if { ftd.device == "desktop" }: 145
-height.fixed.px if { ftd.device == "desktop" }: 100
-width.fixed.px: 100
-height.fixed.px: 80
-
--- ftd.column: 
-if: { color-block-light.border == NULL }
-width: fill-container
-height: fill-container
-border-radius.px: 6
-margin-top.px: -44
-background.solid: $color-block-light.light
-border-width.px: 1
-border-color: #A0A0A0
-
--- ftd.column:
-width: fill-container
-anchor: parent
-bottom.px: 0
-border-bottom-left-radius.px: 6
-border-bottom-right-radius.px: 6
-padding-horizontal.px: 10
-background.solid: rgba(0,0,0,.1)
-padding-vertical.px: 8
-
--- ftd.text: $color-block-light.light
-role: $inherited.types.fine-print
-color: #FFFFFF
-text-transform: uppercase
-style: bold
-
--- end: ftd.column
-
--- end: ftd.column
-
--- ftd.column:
-if: { color-block-light.border != NULL }
-width: fill-container
-height: fill-container
-border-radius.px: 6
-margin-top.px: -44
-border-width.px: 1
-border-color: #A0A0A0
-background.solid: $color-block-light.light
-
--- ftd.column:
-width: fill-container
-height.fixed.px: 33
-background.solid: $color-block-light.border
-
--- ftd.column:
-width: fill-container
-anchor: parent
-bottom.px: 0
-border-bottom-left-radius.px: 6
-border-bottom-right-radius.px: 6
-padding-horizontal.px: 10
-background.solid: rgba(0,0,0,.1)
-padding-vertical.px: 8
-
--- ftd.text: $color-block-light.border-light
-role: $inherited.types.fine-print
-color: #FFFFFF
-text-transform: uppercase
-style: bold
-
--- end: ftd.column
-
--- end: ftd.column
-
--- ftd.column:
-width: fill-container
-height.fixed.px: 33
-background.solid: $color-block-light.text
-
--- ftd.column:
-width: fill-container
-anchor: parent
-bottom.px: 0
-border-bottom-left-radius.px: 6
-border-bottom-right-radius.px: 6
-padding-horizontal.px: 10
-background.solid: rgba(0,0,0,.1)
-padding-vertical.px: 8
-
--- ftd.text: $color-block-light.text-light
-role: $inherited.types.fine-print
-color: #FFFFFF
-text-transform: uppercase
-style: bold
-
--- end: ftd.column
-
--- end: ftd.column
-
--- ftd.column:
-width: fill-container
-anchor: parent
-bottom.px: 0
-border-bottom-left-radius.px: 6
-border-bottom-right-radius.px: 6
-padding-horizontal.px: 10
-background.solid: rgba(0,0,0,.1)
-padding-vertical.px: 8
-
--- ftd.text: $color-block-light.light
-role: $inherited.types.fine-print
-color: #FFFFFF
-text-transform: uppercase
-style: bold
-
--- end: ftd.column
-
--- end: ftd.column
-
--- end: ftd.column
-
--- ftd.column:
-width: fill-container
-spacing.fixed.px: 5
-
--- ftd.text: $color-block-light.title
-role: $inherited.types.copy-small
-color: $inherited.colors.text
-
--- ftd.text:
-role: $inherited.types.copy-small
-color: #707070
-width.fixed.percent if { ftd.device == "mobile" }: 80
-
-$color-block-light.body
-
--- end: ftd.column
-
--- end: ftd.row
-
--- end: ftd.column
-
--- end: ftd.row
-
--- end: color-block-light
-
-
-
-
-
-
-
-
-
-
 -- component body-with-links:
 string github-text:
 string discord-text:
@@ -1639,8 +863,8 @@ color: $inherited.colors.text
 
 -- ftd.image:
 ;;if: { types-box.name == "null" && types-box.mouse-in }
-src: $assets.files.assets.copy-hover.svg
-src if { types-box.mouse-in }: $assets.files.assets.copy.svg
+src: $assets.files.static.copy-hover.svg
+src if { types-box.mouse-in }: $assets.files.static.copy.svg
 $on-mouse-enter$: $ftd.set-bool($a = $types-box.mouse-in, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $types-box.mouse-in, v = false)
 $on-click$: $ftd.copy-to-clipboard(a = $types-box.types-property)
@@ -1654,7 +878,7 @@ spacing: space-between
 
 -- ftd.image:
 if: { types-box.copy-text != "null" }
-src: $assets.files.assets.tick-icon.svg
+src: $assets.files.static.tick-icon.svg
 width.fixed.px: 12
 
 -- ftd.text: $types-box.copy-text
@@ -1886,15 +1110,7 @@ color: $inherited.colors.text
 
 
 
--- component header:
-caption title: 
 
--- ftd.text: $header.title
-role: $inherited.types.heading-tiny
-color: $inherited.colors.text
-style: bold
-
--- end: header
 
 
 
@@ -1904,8 +1120,11 @@ ftd.type-data types:
 
 -- ftd.column:
 width: fill-container
+margin-top.px: 44
 
--- header: Headings
+-- types-header: Headings
+id: headings
+$is-open: true
 
 -- types-box: \$inherited.types.heading-hero
 title: heading hero
@@ -1937,11 +1156,10 @@ types-role: $types.heading-tiny
 mobile: $types.heading-tiny-mobile
 desktop: $types.heading-tiny-desktop
 
--- ftd.column:
-width: fill-container
-margin-top.px: 34
+-- end: types-header
 
--- header: Copy
+-- types-header: Copy
+id: copy
 
 -- types-box: \$inherited.types.copy-large
 title: copy-large
@@ -1961,13 +1179,10 @@ types-role: $types.copy-small
 mobile: $types.copy-small-mobile
 desktop: $types.copy-small-desktop
 
--- end: ftd.column
+-- end: types-header
 
--- ftd.column:
-width: fill-container
-margin-top.px: 34
-
--- header: Button
+-- types-header: Button
+id: button
 
 -- types-box: \$inherited.types.button-large
 title: button-large
@@ -1993,13 +1208,10 @@ types-role: $types.link
 mobile: $types.link-mobile
 desktop: $types.link-desktop
 
--- end: ftd.column
+-- end: types-header
 
--- ftd.column:
-width: fill-container
-margin-top.px: 34
-
--- header: Label
+-- types-header: Label
+id: label
 
 -- types-box: \$inherited.types.label-large
 title: label-large
@@ -2013,13 +1225,10 @@ types-role: $types.label-small
 mobile: $types.label-small-mobile
 desktop: $types.label-small-desktop
 
--- end: ftd.column
+-- end: types-header
 
--- ftd.column:
-width: fill-container
-margin-top.px: 34
-
--- header: Specialized Text
+-- types-header: Specialized Text
+id: specialized-text
 
 -- types-box: \$inherited.types.fine-print
 title: fine-print
@@ -2039,8 +1248,68 @@ types-role: $types.source-code
 mobile: $types.source-code-mobile
 desktop: $types.source-code-desktop
 
--- end: ftd.column
+-- end: types-header
 
 -- end: ftd.column
 
 -- end: display-type
+
+
+
+
+
+
+
+
+
+
+-- component types-header:
+caption title:
+children wrapper:
+optional string id:
+ftd.type-data types: $opensans-typography.types
+boolean $is-open: false
+
+-- ftd.column:
+width: fill-container
+id: $types-header.id
+
+-- ftd.row:
+width: fill-container
+border-bottom-width.px: 1
+border-color: $inherited.colors.border-strong
+margin-bottom.px: 24
+spacing.fixed.px: 24
+$on-click$: $ftd.toggle($a = $types-header.is-open)
+padding-bottom.px: 6
+
+-- ftd.image:
+if: { !types-header.is-open }
+src: $assets.files.static.down-arrow.svg
+align-self: center
+
+-- ftd.image:
+if: { types-header.is-open }
+src: $assets.files.static.right-arrow.svg
+align-self: center
+
+-- ftd.text: $types-header.title
+role: $inherited.types.heading-small
+color: $inherited.colors.text-strong
+region: h2
+align-self: center
+
+-- end: ftd.row
+
+-- ftd.column:
+if: { types-header.is-open }
+width: fill-container
+children: $types-header.wrapper
+margin-bottom.px: 24
+padding-left.px: 40
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: types-header

@@ -4,6 +4,9 @@
 
 -- fastn.dependency: fastn-community.github.io/code-block
 -- fastn.dependency: fastn-community.github.io/footer
+-- fastn.dependency: fastn-community.github.io/arya-font
+-- fastn.dependency: fastn-community.github.io/arya-typography
+-- fastn.dependency: fastn-community.github.io/opensans-typography
 -- fastn.dependency: fastn-community.github.io/inter-font
 -- fastn.dependency: fastn-community.github.io/inter-typography
 
