@@ -4,7 +4,6 @@
 -- import: fastn-community.github.io/typography-doc/colors
 -- import: fastn-community.github.io/typography-doc/components as cp
 -- import: fastn-community.github.io/footer
--- import: fastn-community.github.io/inter-typography as typo
 -- import: fastn-community.github.io/opensans-typography
 -- import: fastn-community.github.io/typography-doc/typography as types
 
@@ -26,7 +25,7 @@ name: Arya Typography
 logo: $assets.files.static.fastn-logo.svg
 subtitle: Arya Typography
 colors: $colors-data
-types: $typo.types
+types: $ftd.default-types
 document-title: Arya Typography a fastn typography package
 document-description: Arya Typography a fastn typography package
 document-image: https://fastn-community.github.io/typography-doc/-/fastn-community.github.io/typography-doc/static/arya-og-image.png
@@ -566,7 +565,7 @@ optional ftd.image-src logo:
 children package-wrap:
 optional string subtitle:
 ftd.color-scheme colors: $ftd.default-colors
-ftd.type-data types: $typo.types
+ftd.type-data types: $ftd.default-types
 boolean $mouse-in: false
 optional string document-title:
 optional string document-description:
@@ -1058,7 +1057,7 @@ align-content: center
 role: $inherited.types.fine-print
 color: $inherited.colors.text
 
--- ftd.integer: $types-box.mobile.weight
+-- ftd.integer: $types-box.desktop.weight
 role: $inherited.types.fine-print
 color: $inherited.colors.text
 
