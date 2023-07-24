@@ -697,7 +697,7 @@ children: $package.package-wrap
 
 -- footer.fastn-footer:
 copyright: Copyright © 2023 - [FifthTry](https://www.fifthtry.com/)
-site-logo: https://fastn.com/-/fastn.io/images/fastn-dark.svg
+site-logo: https://fastn.com/-/fastn.com/images/fastn.svg
 powered-by-text: Powered by
 powered-by-link: https://fastn.io/
 
